@@ -11,6 +11,7 @@ const getTitle = (pageTitle?: string) =>
 const Head = ({ title }: HeadProps) => (
   <NextHead>
     <title>{getTitle(title)}</title>
+    <link rel="icon" type="image/x-icon" href="./static/favicon.ico" />    
   </NextHead>
 );
 
