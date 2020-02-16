@@ -1,33 +1,47 @@
 import Head from "../components/Head";
 import Nav from "../components/Nav";
-
-import "normalize.css";
+import { createUseStyles } from "react-jss";
 
 interface LayoutProps {
   children?: React.ReactChild | React.ReactChild[];
 }
 
-export default ({ children }: LayoutProps) => (
-  <div>
-    <style>
-      {`
-        body {
-            font-family: "Quattrocento", serif;
-        }
+const useStyles = createUseStyles({
+  container: {
+    display: "flex",
+    height: '100%',
+  },
+  navContainer: {
+    flexGrow: 0,
+    flexShrink: 0,
+    background: 'rgba(255,255,255,.5)',
+    opacity: ({ children }) => (children && children.length > 0) ? .6 : 1,
+    transition: 'opacity ease-in-out .2s',
+    '&:hover': {
+      opacity: ({ children }) => (children && children.length > 0) ? .8 : 1,
+    },
+    display: 'flex',
+    alignItems: 'start',
+  },
+  contentContainer: {
+    flex: 1,
+    maxWidth: 760,
+  },
+});
 
-        h1, h2, h3, h4, h5 {
-            font-family: "Fanwood Text", serif;
-        }
-    `}
-    </style>
-    <Head />
+const Layout: React.FunctionComponent<LayoutProps> = (props) => {
+  const { children } = props
+  const classes = useStyles(props);
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Fanwood+Text|Quattrocento&display=swap"
-      rel="stylesheet"
-    />
+  return (
+    <div className={classes.container}>
+      <Head />
+      <div className={classes.navContainer}>
+        <Nav />
+      </div>
+      <div className={classes.contentContainer}>{children}</div>
+    </div>
+  );
+};
 
-    <Nav />
-    {children}
-  </div>
-);
+export default Layout

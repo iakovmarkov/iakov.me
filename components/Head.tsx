@@ -11,7 +11,10 @@ const getTitle = (pageTitle?: string) =>
 const Head = ({ title }: HeadProps) => (
   <NextHead>
     <title>{getTitle(title)}</title>
-    <link rel="icon" type="image/x-icon" href="./static/favicon.ico" />    
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Open+Sans&display=swap" rel="stylesheet" />
+
   </NextHead>
 );
 
