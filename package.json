@@ -3,17 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "format": "prettier ./*.{js,ts,tsx} components/**/*.{ts,tsx} pages/**/*.{ts,tsx} static/**/*.{ts,tsx} utils/**/*.{ts,tsx} --write",
-    "lint": "tslint components/**/*.{ts,tsx} pages/**/*.{ts,tsx} static/**/*.{ts,tsx} utils/**/*.{ts,tsx}",
+    "format": "prettier ./*.{js,ts,tsx} components/**/*.{ts,tsx} pages/**/*.{ts,tsx} --write",
+    "lint": "tslint components/**/*.{ts,tsx} pages/**/*.{ts,tsx}",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
   "lint-staged": {
-    "**/*.{ts,tsx,js,jsx,css}": [
+    "**/*.{ts,tsx,js,jsx}": [
       "yarn format",
-      "yarn lint",
-      "git add"
+      "yarn lint"
     ]
   },
   "husky": {
