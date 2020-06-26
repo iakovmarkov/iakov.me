@@ -1,55 +1,47 @@
-import matter from "gray-matter";
-import Link from "next/link";
+import { createUseStyles } from "react-jss";
 import Layout from "../../components/Layout";
+import Post, { PostType } from "../../components/Post";
+import * as r from "ramda";
 
 import { NextPage } from "next";
 
-type PostType = {
-  slug: string;
-  document: any;
+const useStyles = createUseStyles({
+  list: {
+    listStyle: "none",
+  },
+});
+
+const Blog: NextPage<{ posts: PostType[] }> = ({ posts }) => {
+  const classes = useStyles();
+  return (
+    <Layout>
+      <ul className={classes.list}>
+        {posts.map(({ slug, raw }) => (
+          <li key={slug}>
+            <Post slug={slug} raw={raw} short />
+          </li>
+        ))}
+      </ul>
+    </Layout>
+  );
 };
 
-const Blog: NextPage<{ posts: PostType[] }> = ({ posts }) => (
-  <Layout>
-    {posts.map(({ slug, document: { data: { title } } }) => (
-      <Link key={slug} href={`/blog/${slug}`}>
-        <a>{title}</a>
-      </Link>
-    ))}
-  </Layout>
-);
-
 Blog.getInitialProps = async () => {
-  // get all .md files from the src/posts dir
-  const posts = (context => {
-    // grab all the files matching this context
-    const keys = context.keys();
-    // grab the values from these files
-    const values = keys.map(context);
-    // go through each file
-    const data = keys.map((key: string, index: number) => {
-      // Create slug from filename
-      const slug = key
-        .replace(/^.*[\\\/]/, "")
-        .split(".")
-        .slice(0, -1)
-        .join(".");
-      // get the current file value
-      const value = values[index];
-      // Parse frontmatter & markdownbody for the current file
-      const document = matter(value.default);
-      // return the .md content & pretty slug
-      return {
-        document,
-        slug
-      };
-    });
-    // return all the posts
-    return data;
-  })((require as any).context("../../posts", true, /\.md$/));
+  const context = (require as any).context("../../posts", true, /\.md$/) as any;
+  const keys = context.keys();
+  const raw = keys.map(context);
+
+  const posts = keys.map((fileName: string, index: number) => ({
+    raw: r.path([index, "default"])(raw),
+    slug: fileName
+      .replace(/^.*[\\\/]/, "")
+      .split(".")
+      .slice(0, -1)
+      .join("."),
+  }));
 
   return {
-    posts
+    posts,
   };
 };
 

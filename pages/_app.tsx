@@ -1,14 +1,14 @@
-import NextApp from 'next/app'
+import NextApp from "next/app";
 
 import "normalize.css";
-import "../static/global.css"
+import "../utils/global.css";
 
 export default class App extends NextApp {
   componentDidMount() {
-    const style = document.getElementById('server-side-styles')
+    const style = document.getElementById("server-side-styles");
 
     if (style) {
-      style.parentNode!.removeChild(style)
+      style.parentNode!.removeChild(style);
     }
   }
 }

@@ -1,34 +1,25 @@
-import matter from 'gray-matter'
-import ReactMarkdown from 'react-markdown'
-import Layout from '../../components/Layout'
+import Layout from "../../components/Layout";
+import Post, { PostType } from "../../components/Post";
 
-import { NextPage } from 'next'
+import { NextPage } from "next";
 
-const BlogPage: NextPage<{ content: string, data: any }> = (props) => {
-  const markdownBody = props.content
-  const frontmatter = props.data
-
+const BlogPage: NextPage<{ raw: string }> = ({ raw }) => {
   return (
     <Layout>
-      <article>
-        <h1>{frontmatter.title}</h1>
-        <div>
-          <ReactMarkdown source={markdownBody} />
-        </div>
-      </article>
+      <Post slug={"/"} raw={raw} />
     </Layout>
-  )
-}
+  );
+};
 
-BlogPage.getInitialProps = async function(context) {
-  const { slug } = context.query
+BlogPage.getInitialProps = async (context) => {
+  const { slug } = context.query;
 
-  const content = await import(`../../posts/${slug}.md`)
-  const data = matter(content.default)
+  const content = await import(`../../posts/${slug}.md`);
+  const raw = content.default;
 
   return {
-    ...data,
-  }
-}
+    raw,
+  };
+};
 
-export default BlogPage
+export default BlogPage;

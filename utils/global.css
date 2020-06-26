@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Poppins:ital,wght@0,500;1,900&display=swap');
+
+body {
+  font-family: 'PT Serif', serif;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Poppins', sans-serif;
+}
+
+body, html, #__next {
+    height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}

@@ -1,61 +1,46 @@
-import NextLink from "next/link";
+import Link from "../components/Link";
 import { useRouter } from "next/router";
 import { createUseStyles } from "react-jss";
 
-interface ILink {
-  to: string
-  title: string
+interface NavProps {
+  noIndex?: boolean;
 }
 
 const useStyles = createUseStyles({
   nav: {
-    alignItems: "start"
+    alignItems: "start",
+    textTransform: "uppercase",
+    fontWeight: 500,
   },
   list: {
     display: "flex",
-    flexDirection: "column",
-    padding: "16px 32px",
-    textAlign: "center",
+    flexDirection: "row",
+    justifyContent: "center",
+    listStyle: "none",
   },
-  item: {
-    flex: 1,
-    fontSize: "2em",
-    lineHeight: 1.3,
-    opacity: ({ isLinkActive }: any = {}) => isLinkActive ? 1 : 0.7,
-    transition: "opacity ease-in-out .2s",
-    "&:hover": {
-      opacity: 1
-    }
+  listItem: {
+    fontFamily: "Poppins",
+    padding: "16px 32px",
   },
 });
 
-const links = [
-  { to: "/", title: "∞" },
-  { to: "/about", title: "About" },
-  // TODO: Remove contidion once blog is live
-  (process.env.NODE_ENV === 'development') && { to: "/blog", title: "Blog" },
-  { to: "mailto:markov@iakov.me", title: "Contact" }
-].filter(Boolean) as ILink[];
-
-const Link = ({ to, title }: ILink) => {
-  const router = useRouter();
-  const classes = useStyles({ isLinkActive: router.pathname === to });
-
-  return (
-    <NextLink href={to}>
-      <a className={classes.item}>{title}</a>
-    </NextLink>
-  );
-};
-
-const Nav = () => {
+const Nav: React.FunctionComponent<NavProps> = ({ noIndex }) => {
   const classes = useStyles();
+
+  const links = [
+    noIndex ? null : <Link to="/">Home</Link>,
+    // <Link to="/about">About</Link>,
+    // <Link to="/blog">Blog</Link>,
+    <Link href="mailto:markov@iakov.me">Contact</Link>,
+  ].filter(Boolean);
 
   return (
     <nav className={classes.nav}>
       <ul className={classes.list}>
-        {links.map(({ to, title }) => (
-          <Link key={to} to={to} title={title} />
+        {links.map((link, i) => (
+          <li key={i} className={classes.listItem}>
+            {link}
+          </li>
         ))}
       </ul>
     </nav>

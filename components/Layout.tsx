@@ -2,6 +2,8 @@ import Head from "../components/Head";
 import Nav from "../components/Nav";
 import { createUseStyles } from "react-jss";
 
+const MAX_WIDTH = 760;
+
 interface LayoutProps {
   children?: React.ReactChild | React.ReactChild[];
 }
@@ -9,39 +11,43 @@ interface LayoutProps {
 const useStyles = createUseStyles({
   container: {
     display: "flex",
-    height: '100%',
+    minHeight: "100%",
+    background: "#FFFFFF",
+    flexDirection: "column",
+    alignItems: "center",
   },
   navContainer: {
-    flexGrow: 0,
-    flexShrink: 0,
-    background: 'rgba(255,255,255,.5)',
-    opacity: ({ children }) => (children && children.length > 0) ? .6 : 1,
-    transition: 'opacity ease-in-out .2s',
-    '&:hover': {
-      opacity: ({ children }) => (children && children.length > 0) ? .8 : 1,
-    },
-    display: 'flex',
-    alignItems: 'start',
+    width: "100%",
+    background: "#FFFFFF",
+    display: "flex",
+    justifyContent: "center",
+  },
+  nav: {
+    maxWidth: MAX_WIDTH,
+    width: "100%",
+    borderBottom: "1px solid #eeeeee",
   },
   contentContainer: {
-    flex: 1,
-    maxWidth: 760,
+    width: "100%",
+    maxWidth: MAX_WIDTH,
   },
 });
 
 const Layout: React.FunctionComponent<LayoutProps> = (props) => {
-  const { children } = props
+  const { children } = props;
   const classes = useStyles(props);
 
   return (
     <div className={classes.container}>
       <Head />
       <div className={classes.navContainer}>
-        <Nav />
+        <div className={classes.nav}>
+          <Nav />
+        </div>
       </div>
       <div className={classes.contentContainer}>{children}</div>
     </div>
   );
 };
 
-export default Layout
+export default Layout;
