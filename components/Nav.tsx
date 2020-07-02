@@ -1,5 +1,5 @@
 import Link from "../components/Link";
-import { createUseStyles } from "react-jss";
+import { createUseStyles, useTheme } from "react-jss";
 
 interface NavProps {
   noIndex?: boolean;
@@ -18,21 +18,22 @@ const useStyles = createUseStyles({
     listStyle: "none",
   },
   listItem: {
-    fontFamily: "Poppins",
+    fontFamily: ({ theme }) => theme.font.family.title,
   },
   link: {
     display: "block",
-    padding: "16px 32px",
-    borderBottom: "4px solid transparent",
+    padding: ({ theme }) => `${theme.size.lg}px ${theme.size.lg * 2}px`,
+    borderBottom: ({ theme }) => `${theme.size.sm}px solid transparent`,
 
     "&.isActive": {
-      borderBottomColor: "#dddddd",
+      borderBottomColor: ({ theme }) => theme.color.border,
     },
   },
 });
 
 const Nav: React.FunctionComponent<NavProps> = ({ noIndex }) => {
-  const classes = useStyles();
+  const theme = useTheme();
+  const classes = useStyles({ theme });
 
   const links = [
     noIndex ? null : { to: "/", label: "Home" },

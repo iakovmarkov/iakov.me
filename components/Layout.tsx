@@ -1,8 +1,6 @@
+import { createUseStyles, useTheme } from "react-jss";
 import Head from "../components/Head";
 import Nav from "../components/Nav";
-import { createUseStyles } from "react-jss";
-
-const MAX_WIDTH = 760;
 
 interface LayoutProps {
   children?: React.ReactChild | React.ReactChild[];
@@ -12,30 +10,30 @@ const useStyles = createUseStyles({
   container: {
     display: "flex",
     minHeight: "100%",
-    background: "#FFFFFF",
     flexDirection: "column",
     alignItems: "center",
+    background: ({ theme }) => theme.color.background,
   },
   navContainer: {
     width: "100%",
-    background: "#FFFFFF",
     display: "flex",
     justifyContent: "center",
   },
   nav: {
-    maxWidth: MAX_WIDTH,
     width: "100%",
-    borderBottom: "1px solid #eeeeee",
+    maxWidth: ({ theme }) => theme.size.width,
+    borderBottom: ({ theme }) => `1px solid ${theme.color.border}`,
   },
   contentContainer: {
     width: "100%",
-    maxWidth: MAX_WIDTH,
+    maxWidth: ({ theme }) => theme.size.width,
   },
 });
 
 const Layout: React.FunctionComponent<LayoutProps> = (props) => {
+  const theme = useTheme();
+  const classes = useStyles({ theme });
   const { children } = props;
-  const classes = useStyles(props);
 
   return (
     <div className={classes.container}>

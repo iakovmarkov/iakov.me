@@ -1,7 +1,7 @@
-import { createUseStyles } from "react-jss";
+import { createUseStyles, useTheme } from "react-jss";
+import * as r from "ramda";
 import Layout from "../../components/Layout";
 import Post, { PostType } from "../../components/Post";
-import * as r from "ramda";
 
 import { NextPage } from "next";
 
@@ -9,15 +9,25 @@ const useStyles = createUseStyles({
   list: {
     listStyle: "none",
   },
+  listItem: {
+    borderBottom: ({ theme }) => `1px solid ${theme.color.border}`,
+    margin: ({ theme }) => `${theme.size.lg}px 0 0`,
+    padding: ({ theme }) => `0 0 ${theme.size.lg}px`,
+    "&:last-child": {
+      borderBottom: "none",
+    },
+  },
 });
 
 const Blog: NextPage<{ posts: PostType[] }> = ({ posts }) => {
-  const classes = useStyles();
+  const theme = useTheme();
+  const classes = useStyles({ theme });
+
   return (
     <Layout>
       <ul className={classes.list}>
         {posts.map(({ slug, raw }) => (
-          <li key={slug}>
+          <li className={classes.listItem} key={slug}>
             <Post slug={slug} raw={raw} short />
           </li>
         ))}
@@ -41,7 +51,7 @@ Blog.getInitialProps = async () => {
   }));
 
   return {
-    posts,
+    posts: [...posts],
   };
 };
 

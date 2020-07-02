@@ -3,7 +3,7 @@ import NextLink from "next/link";
 
 type RenderFunctionProps = {
   href?: string;
-  content?: string;
+  content?: React.ReactNode;
   isActive: boolean;
 };
 
@@ -13,13 +13,11 @@ type LinkProps = React.PropsWithChildren<{
   to?: string;
   as?: string;
   href?: string;
-  children: string | RenderFunction;
+  children: React.ReactNode | RenderFunction;
 }>;
 
-const defaultRenderFn: RenderFunction = ({ href, content, isActive }) => (
-  <a className={isActive ? "isActive" : ""} href={href}>
-    {content}
-  </a>
+const defaultRenderFn: RenderFunction = ({ content, isActive }) => (
+  <a className={isActive ? "isActive" : ""}>{content}</a>
 );
 
 const Link = ({ href, to, as, children }: LinkProps) => {
