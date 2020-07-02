@@ -1,7 +1,7 @@
 import { createUseStyles } from "react-jss";
 import matter, { GrayMatterOption } from "gray-matter";
 import ReactMarkdown from "react-markdown";
-import Link from "next/link";
+import Link from "../components/Link";
 
 const MATTER_OPTS: GrayMatterOption<any, any> = {
   excerpt: true,
@@ -27,13 +27,15 @@ const useStyles = createUseStyles({
 const Post = ({ slug, raw, short }: PostType) => {
   const classes = useStyles({ short });
   const post = matter(raw, MATTER_OPTS);
+  const href = `/blog/${slug}`;
+
+  // console.log(raw);
+  // console.warn(post)
 
   return (
     <article className={classes.container}>
-      <Link key={slug} href={`/blog/${slug}`}>
-        <a>
-          <h1 className={classes.title}>{post.data.title}</h1>
-        </a>
+      <Link key={slug} href={href}>
+        {() => <h1 className={classes.title}>{post.data.title}</h1>}
       </Link>
       <img
         className={classes.image}
@@ -56,8 +58,8 @@ const Post = ({ slug, raw, short }: PostType) => {
       {short ? (
         <>
           <ReactMarkdown source={post.excerpt} />
-          <Link key={slug} href={`/blog/${slug}`}>
-            <a className={classes.readMoreLink}>Read more</a>
+          <Link to="/blog/[slug]" as={href}>
+            {() => <a className={classes.readMoreLink}>Read more</a>}
           </Link>
         </>
       ) : (
