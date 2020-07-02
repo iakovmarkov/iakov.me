@@ -9,6 +9,7 @@ const useStyles = createUseStyles({
   nav: {
     alignItems: "start",
     textTransform: "uppercase",
+    fontStyle: "italic",
     fontWeight: 500,
   },
   list: {
