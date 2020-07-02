@@ -1,21 +1,43 @@
+import { createUseStyles, useTheme } from "react-jss";
+import Head from "../components/Head";
+import Glitch from "../components/Glitch";
 import { NextPage } from "next";
 
-const ErrorScreen: any = () => {
-  return <div>Oops :(</div>;
+interface ErrorProps {
+  statusCode?: number;
+}
+
+const useStyles = createUseStyles({
+  text: {
+    lineHeight: 1.5,
+    fontStyle: "italic",
+    fontWeight: 900,
+  },
+  subtext: {
+    fontFamily: ({ theme }) => theme.font.family.title,
+  },
+});
+
+const Error: NextPage<ErrorProps> = ({ statusCode }) => {
+  const theme = useTheme();
+  const classes = useStyles({ theme });
+
+  return (
+    <>
+      <Head />
+      <Glitch>
+        <h1 className={classes.text}>You should not be here</h1>
+        <div className={classes.subtext}>
+          {statusCode ? `Error ${statusCode} occured` : "Failed successfully"}
+        </div>
+      </Glitch>
+    </>
+  );
 };
 
-ErrorScreen.getInitialProps = ({ asPath, res }: any) => {
-  const supportedPaths = ["/blog/"];
-
-  for (let i = 0, l = supportedPaths.length; i < l; i++) {
-    const path = supportedPaths[i];
-    if (asPath === path) {
-      res.writeHead(301, { Location: path.substring(0, path.length - 1) });
-      return res.end();
-    }
-  }
-
-  return {};
+Error.getInitialProps = ({ res, err }) => {
+  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
+  return { statusCode };
 };
 
-export default ErrorScreen;
+export default Error;

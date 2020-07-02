@@ -25,6 +25,7 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
+    textAlign: "center",
     "&:after": {
       display: "block",
       content: "''",
@@ -35,6 +36,15 @@ const useStyles = createUseStyles({
       position: "absolute",
       background: "rgba(0, 0, 0, 0.4)",
     },
+
+    color: "rgb(232, 230, 227)",
+    textShadow: "0 0 10px rgb(202, 47, 1)",
+    textTransform: "uppercase",
+  },
+  glitchContainer: {},
+  contentContainer: {
+    zIndex: 999,
+    maxWidth: 500,
   },
   element: {
     backgroundImage: "url(/homes/torii0.jpg)",
@@ -200,7 +210,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Home = () => {
+const Glitch = ({ children }: React.PropsWithChildren<{}>) => {
   const classes = useStyles();
 
   const glitches = r.pipe(
@@ -208,7 +218,12 @@ const Home = () => {
     r.map((x) => <div className={classes.element} />)
   )(5);
 
-  return <div className={classes.container}>{glitches}</div>;
+  return (
+    <div className={classes.container}>
+      <div className={classes.glitchContainer}>{glitches}</div>
+      <div className={classes.contentContainer}>{children}</div>
+    </div>
+  );
 };
 
-export default Home;
+export default Glitch;
