@@ -1,11 +1,11 @@
 import matter, { GrayMatterOption, GrayMatterFile } from "gray-matter";
 import BlogPost from "./Blog";
 import QuotePost from "./Quote";
-import ImagePost from "./Image";
+import MediaPost from "./Media";
 import * as r from "ramda";
 import { FunctionComponent } from "react";
 
-const isImagePost = r.where({
+const isMediaPost = r.where({
   content: r.isEmpty,
   data: r.where({ image: r.is(String) }),
 });
@@ -36,7 +36,7 @@ const Post: FunctionComponent<PostProps> = ({ raw, ...props }) => {
   const post = matter(raw, MATTER_OPTS);
 
   const element = r.cond([
-    [isImagePost, r.always(<ImagePost post={post} {...props} />)],
+    [isMediaPost, r.always(<MediaPost post={post} {...props} />)],
     [isQuotePost, r.always(<QuotePost post={post} {...props} />)],
     [r.T, r.always(<BlogPost post={post} {...props} />)],
   ])(post);

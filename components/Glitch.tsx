@@ -1,4 +1,4 @@
-import { createUseStyles } from "react-jss";
+import { createUseStyles, useTheme } from "react-jss";
 import * as r from "ramda";
 import { FunctionComponent } from "react";
 
@@ -40,11 +40,14 @@ const useStyles = createUseStyles({
   contentContainer: {
     zIndex: 999,
     maxWidth: 500,
+    width: "100%",
+    padding: ({ theme }) => `${theme.size.lg}px`,
   },
   element: {
-    backgroundImage: "url(/homes/torii0.jpg)",
+    backgroundImage: "url(/zizkov.jpg)",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    backgroundPosition: "center",
     height: "100%",
     width: "100%",
     top: "0",
@@ -206,7 +209,8 @@ const useStyles = createUseStyles({
 });
 
 const Glitch: FunctionComponent = ({ children }) => {
-  const classes = useStyles();
+  const theme = useTheme();
+  const classes = useStyles({ theme });
 
   const glitches = r.pipe(
     r.range(0),

@@ -1,17 +1,20 @@
 ---
 title: "Hello World"
-date: 2017-01-07
-image: /homes/torii0.jpg
-tags:
-- Hello
-- World
+date: 2020-01-07
+image: /blog/stanislav-kondratiev-9_09JajkRaA-unsplash.jpg
+imageAlt: Aerial view of Ekatrinburg. I was born somewhere here.
+imageAttr: <span>Photo by <a href="https://unsplash.com/@technobulka?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Stanislav Kondratiev</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 ---
-This is the first post in the blog. I'll use it for development purposes.
+First post about this website, blog and what I'm going to do with them.
 ---
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse egestas, diam a maximus egestas, est augue consectetur erat, ut varius massa erat in nibh. Fusce tristique velit sollicitudin, interdum nunc sed, congue turpis. Suspendisse potenti. Proin rhoncus tincidunt purus tincidunt dictum. Nunc pellentesque dolor metus, non sodales tortor eleifend nec. Sed massa enim, facilisis ac elit vel, iaculis ultrices neque. Aenean in ipsum nunc.
+Welcome to my website! It's my little piece of Internet. Not very pretty, but I'm not a fan of pretty things. If you want to read more about me check the [About](/about) page.
 
-Pellentesque commodo interdum lacus, a imperdiet turpis viverra vitae. Maecenas hendrerit blandit nunc ac elementum. Fusce eu auctor elit. Donec a maximus risus. Duis auctor augue sit amet odio egestas feugiat. Duis at fringilla est. Cras lorem lectus, tincidunt suscipit augue et, iaculis pharetra sem. Nunc posuere pharetra lacus, id tempor eros sagittis ac. Donec ultrices eros sed tortor volutpat finibus. Praesent nulla nisl, pharetra sed tincidunt interdum, vulputate et nunc. Nulla ornare, nunc in ultricies auctor, justo ipsum commodo nisl, et maximus mi enim vitae arcu. Ut a blandit nisi, nec iaculis orci. Nulla et elit lobortis, blandit libero ac, porta sem. Nulla facilisi.
+I intend this site to be a showcase of my web dev skills - it's [source code is available on GitHub][0]. Feel free to take a look at it, I think it's pretty neat. I've used my favorite stack, really - ReactJS and TypeScript. It's a bit rough around the edges and missing a few features - I've written them down in _another_ blog post here. I intend to work on the website a bit more, and maintain it in future, maybe even rewrite into the shiny new tech that will come my way in future. I guess the most precious asset would be my blog - and it's written in Markdown, which is pretty widely supported.
 
-Pellentesque ornare accumsan magna, ac pulvinar purus. Fusce quis commodo metus. Sed porttitor vestibulum tortor, quis interdum augue viverra quis. Vestibulum ante mauris, vehicula vitae facilisis vel, placerat at purus. Maecenas porttitor, libero quis dapibus congue, dui diam tincidunt nunc, vel bibendum tortor arcu quis neque. Phasellus mattis vestibulum est, eget semper enim consectetur non. Nunc libero ante, aliquam sed viverra vel, viverra a risus. Quisque vel nisl nec libero aliquet laoreet. Suspendisse ut turpis sit amet justo sodales blandit.
+By the way, the background of the homepage is a picture of Žižkov by [Jaromír Kavan on Unsplash](https://unsplash.com/@jerrykavan?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText). I swear, finding the fitting picture for my homepage was an aesthetic challenge.
 
-Phasellus felis nunc, convallis vel aliquam in, tincidunt in tellus. Pellentesque vulputate tortor augue, id sagittis est tincidunt quis. Etiam augue purus, varius commodo euismod ut, dignissim vel nibh. Vivamus quis odio tempus, efficitur dui vitae, lobortis arcu. Praesent placerat pharetra accumsan. Donec rhoncus eleifend nunc, a vestibulum nisi aliquet eget. Aliquam aliquet ex ut augue viverra, nec consequat nisi consequat. Nulla eget enim elementum ante molestie faucibus id quis nulla. Donec lacinia sem quam, ac luctus ex vehicula a. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus cursus justo nec orci accumsan, eu iaculis sem congue. Maecenas in tellus eget purus gravida pretium. Aenean non tempor nisl, et egestas mi. 
+I'm still not sure about the blog. Initially I wanted to write only about "professional" stuff, but I think that's mighty boring. Besides, I'm really passionate about lots of what I do professionally - programming, automation, FOSS - that I'd rather write about that in my own manner. I also want to post some bits and pieces from my personal diary - what I like, what I think. I don't care if anyone will actually read this - I'm doing this for myself. It would be fun to check this out when I'm older.
+
+Which reminds me - I need to figure out how to keep this alive after I die.
+
+[0]: https://github.com/iakovmarkov/iakov.me

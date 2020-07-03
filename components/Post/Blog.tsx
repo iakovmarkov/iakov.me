@@ -1,9 +1,10 @@
+import { FunctionComponent } from "react";
 import { createUseStyles, useTheme } from "react-jss";
 import ReactMarkdown from "react-markdown";
 import Link from "@/components/Link";
 import removeExcerpt from "@/utils/removeExcerpt";
+import Image from "./Image";
 import { PostElementProps } from ".";
-import { FunctionComponent } from "react";
 
 const useStyles = createUseStyles({
   readMoreLink: {
@@ -51,7 +52,8 @@ const useStyles = createUseStyles({
   },
 });
 
-const Post: FunctionComponent<PostElementProps> = ({ slug, post, short }) => {
+const Post: FunctionComponent<PostElementProps> = (props) => {
+  const { slug, post, short } = props;
   const theme = useTheme();
   const classes = useStyles({ theme, short });
   const href = `/blog/${slug}`;
@@ -77,15 +79,7 @@ const Post: FunctionComponent<PostElementProps> = ({ slug, post, short }) => {
           </div>
         )}
       </div>
-      {post.data.image && (
-        <Link to="/blog/[slug]" as={href}>
-          <img
-            className={classes.image}
-            src={post.data.image}
-            alt={post.data.title}
-          />
-        </Link>
-      )}
+      <Image {...props} />
       {short ? (
         <>
           <ReactMarkdown source={post.excerpt} />
