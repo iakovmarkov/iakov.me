@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import NextLink from "next/link";
 
-type RenderFunctionProps = {
+interface RenderFunctionProps {
   href?: string;
   content?: React.ReactNode;
   isActive: boolean;
-};
+}
 
 type RenderFunction = (props: RenderFunctionProps) => React.ReactElement;
 
