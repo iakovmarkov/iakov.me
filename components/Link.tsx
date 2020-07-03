@@ -21,6 +21,12 @@ interface LinkProps {
   children: React.ReactNode | RenderFunction;
 }
 
+/**
+ * This component renders either a NextLink or an <a> element, depending on props passed
+ * Pass `to` to render a NextLink to navigate inside the application
+ * Pass `href` to render a normal <a> element
+ * The rendered element can be customized using function as a child component
+ */
 const Link: FunctionComponent<LinkProps> = ({ href, to, as, children }) => {
   const router = useRouter();
   const isActive = to && to !== "/" ? router.asPath.includes(to) : false;

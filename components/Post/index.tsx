@@ -28,6 +28,10 @@ export interface PostElementProps extends Partial<PostProps> {
   post: GrayMatterFile<string>;
 }
 
+/**
+ * This component renders a blog post, depending on it's content
+ * Styles and markup are defined in the *Post components
+ */
 const Post: FunctionComponent<PostProps> = ({ raw, ...props }) => {
   const post = matter(raw, MATTER_OPTS);
 

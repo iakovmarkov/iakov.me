@@ -1,6 +1,10 @@
 import Document, { DocumentContext } from "next/document";
 import { SheetsRegistry, JssProvider, createGenerateId } from "react-jss";
 
+/**
+ * This code is lifted straight from Next.js example
+ * https://github.com/vercel/next.js/tree/canary/examples/with-react-jss
+ */
 export default class JssDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const registry = new SheetsRegistry();

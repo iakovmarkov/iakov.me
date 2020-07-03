@@ -2,11 +2,6 @@ import { createUseStyles } from "react-jss";
 import * as r from "ramda";
 import { FunctionComponent } from "react";
 
-/**
- * Inspired by CodePen by Alain Barrios
- * https://codepen.io/AlainBarrios/pen/OEOKgm
- */
-
 const BLEND_COLORS = ["transparent", "#af4949"];
 const BLEND_MODES = ["none", "overlay"];
 const ANIMATION_TIME = "8s";
