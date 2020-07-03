@@ -1,20 +1,10 @@
 import { createUseStyles, useTheme } from "react-jss";
-import matter, { GrayMatterOption } from "gray-matter";
 import ReactMarkdown from "react-markdown";
-import Link from "../components/Link";
-
-const MATTER_OPTS: GrayMatterOption<any, any> = {
-  excerpt: true,
-};
-
-export type PostType = {
-  slug: string;
-  raw: string;
-  short?: boolean;
-};
+import Link from "../Link";
+import { PostElementProps } from ".";
+import removeExcerpt from "../../utils/removeExcerpt";
 
 const useStyles = createUseStyles({
-  container: {},
   readMoreLink: {
     fontFamily: ({ theme }) => theme.font.family.title,
     fontSize: "0.8em",
@@ -48,20 +38,34 @@ const useStyles = createUseStyles({
   image: {
     maxWidth: "100%",
   },
+  content: {
+    "&>p:first-of-type::first-letter": {
+      float: "left",
+      fontSize: "350%",
+      lineHeight: 2,
+      paddingTop: "4px",
+      paddingRight: "8px",
+      paddingLeft: "4px",
+    },
+  },
 });
 
-const Post = ({ slug, raw, short }: PostType) => {
+const Post: React.FunctionComponent<PostElementProps> = ({
+  slug,
+  post,
+  short,
+}) => {
   const theme = useTheme();
   const classes = useStyles({ theme, short });
-  const post = matter(raw, MATTER_OPTS);
   const href = `/blog/${slug}`;
 
   return (
-    <article className={classes.container}>
+    <>
       <Link to="/blog/[slug]" as={href}>
         <h2 className={classes.title}>{post.data.title}</h2>
       </Link>
       <div className={classes.metadataContainer}>
+        <div className={classes.metadataText}>Post</div>
         <div className={classes.metadataText}>
           Written at {post.data.date.toString()}
         </div>
@@ -76,13 +80,15 @@ const Post = ({ slug, raw, short }: PostType) => {
           </div>
         )}
       </div>
-      <Link to="/blog/[slug]" as={href}>
-        <img
-          className={classes.image}
-          src={post.data.hero_image}
-          alt={post.data.title}
-        />
-      </Link>
+      {post.data.image && (
+        <Link to="/blog/[slug]" as={href}>
+          <img
+            className={classes.image}
+            src={post.data.image}
+            alt={post.data.title}
+          />
+        </Link>
+      )}
       {short ? (
         <>
           <ReactMarkdown source={post.excerpt} />
@@ -91,11 +97,11 @@ const Post = ({ slug, raw, short }: PostType) => {
           </Link>
         </>
       ) : (
-        <>
-          <ReactMarkdown source={post.content} />
-        </>
+        <div className={classes.content}>
+          <ReactMarkdown source={removeExcerpt(post.content)} />
+        </div>
       )}
-    </article>
+    </>
   );
 };
 

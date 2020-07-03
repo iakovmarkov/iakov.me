@@ -1,7 +1,6 @@
 ---
 title: "Hello World"
 date: 2017-01-07
-hero_image: /homes/torii1.jpg
 tags:
 - Hello
 - World

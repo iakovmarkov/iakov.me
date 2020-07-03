@@ -1,7 +1,7 @@
 import { createUseStyles, useTheme } from "react-jss";
 import * as r from "ramda";
 import Layout from "../../components/Layout";
-import Post, { PostType } from "../../components/Post";
+import Post, { PostProps } from "../../components/Post";
 
 import { NextPage } from "next";
 
@@ -19,7 +19,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Blog: NextPage<{ posts: PostType[] }> = ({ posts }) => {
+const Blog: NextPage<{ posts: PostProps[] }> = ({ posts }) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
@@ -41,17 +41,26 @@ Blog.getInitialProps = async () => {
   const keys = context.keys();
   const raw = keys.map(context);
 
-  const posts = keys.map((fileName: string, index: number) => ({
-    raw: r.path([index, "default"])(raw),
-    slug: fileName
-      .replace(/^.*[\\\/]/, "")
-      .split(".")
-      .slice(0, -1)
-      .join("."),
-  }));
+  const posts = r.reduce(
+    (acc: any[], fileName: string) => {
+      const index = acc.length;
+      const post = {
+        raw: r.path([index, "default"])(raw),
+        slug: fileName
+          .replace(/^.*[\\\/]/, "")
+          .split(".")
+          .slice(0, -1)
+          .join("."),
+      };
+
+      return [post, ...acc];
+    },
+    [],
+    keys
+  );
 
   return {
-    posts: [...posts],
+    posts,
   };
 };
 
