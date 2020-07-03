@@ -1,7 +1,7 @@
 import { createUseStyles } from "react-jss";
-import Head from "../components/Head";
-import Glitch from "../components/Glitch";
-import Nav from "../components/Nav";
+import Head from "@/components/Head";
+import Glitch from "@/components/Glitch";
+import Nav from "@/components/Nav";
 
 const useStyles = createUseStyles({
   text: {

@@ -1,6 +1,6 @@
 import { createUseStyles, useTheme } from "react-jss";
-import Head from "../components/Head";
-import Glitch from "../components/Glitch";
+import Head from "@/components/Head";
+import Glitch from "@/components/Glitch";
 import { NextPage } from "next";
 
 interface ErrorProps {

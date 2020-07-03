@@ -1,7 +1,7 @@
 import { createUseStyles, useTheme } from "react-jss";
 import ReactMarkdown from "react-markdown";
 import { PostElementProps } from ".";
-import removeExcerpt from "../../utils/removeExcerpt";
+import removeExcerpt from "@/utils/removeExcerpt";
 
 const useStyles = createUseStyles({
   title: {

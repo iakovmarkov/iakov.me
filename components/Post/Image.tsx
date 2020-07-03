@@ -1,5 +1,5 @@
 import { createUseStyles, useTheme } from "react-jss";
-import Link from "../Link";
+import Link from "@/components/Link";
 import { PostElementProps } from ".";
 
 const useStyles = createUseStyles({

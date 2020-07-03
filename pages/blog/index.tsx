@@ -1,9 +1,8 @@
 import { createUseStyles, useTheme } from "react-jss";
 import * as r from "ramda";
-import Layout from "../../components/Layout";
-import Post, { PostProps } from "../../components/Post";
-
 import { NextPage } from "next";
+import Layout from "@/components/Layout";
+import Post, { PostProps } from "@/components/Post";
 
 const useStyles = createUseStyles({
   list: {

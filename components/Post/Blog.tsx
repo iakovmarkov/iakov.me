@@ -1,8 +1,8 @@
 import { createUseStyles, useTheme } from "react-jss";
 import ReactMarkdown from "react-markdown";
-import Link from "../Link";
+import Link from "@/components/Link";
+import removeExcerpt from "@/utils/removeExcerpt";
 import { PostElementProps } from ".";
-import removeExcerpt from "../../utils/removeExcerpt";
 
 const useStyles = createUseStyles({
   readMoreLink: {

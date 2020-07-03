@@ -1,6 +1,6 @@
 import { createUseStyles, useTheme } from "react-jss";
-import Head from "../components/Head";
-import Nav from "../components/Nav";
+import Head from "@/components/Head";
+import Nav from "@/components/Nav";
 
 interface LayoutProps {
   children?: React.ReactChild | React.ReactChild[];

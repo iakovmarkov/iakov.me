@@ -1,7 +1,7 @@
 import { createUseStyles, useTheme } from "react-jss";
 import { NextPage } from "next";
-import Layout from "../../components/Layout";
-import Post from "../../components/Post";
+import Layout from "@/components/Layout";
+import Post from "@/components/Post";
 
 const useStyles = createUseStyles({
   container: {
