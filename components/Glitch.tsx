@@ -10,7 +10,6 @@ const BLEND_COLORS = ["transparent", "#af4949"];
 const BLEND_MODES = ["none", "overlay"];
 const ANIMATION_TIME = "8s";
 const ANIMATION_DELAY = "0.1s";
-const GLITCH_WIDTH = "100vw";
 const GLITCH_HEIGHT = "100vh";
 const GAP_HORIZONTAL = "10px";
 const GAP_VERTICAL = "10px";

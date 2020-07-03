@@ -1,4 +1,4 @@
-import { createUseStyles, Styles } from "react-jss";
+import { createUseStyles } from "react-jss";
 import Head from "../components/Head";
 import Glitch from "../components/Glitch";
 import Nav from "../components/Nav";
