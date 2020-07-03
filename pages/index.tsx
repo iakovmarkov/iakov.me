@@ -2,6 +2,7 @@ import { createUseStyles } from "react-jss";
 import Head from "@/components/Head";
 import Glitch from "@/components/Glitch";
 import Nav from "@/components/Nav";
+import { NextPage } from "next";
 
 const useStyles = createUseStyles({
   text: {
@@ -11,7 +12,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Home = () => {
+const Home: NextPage = () => {
   const classes = useStyles();
 
   return (

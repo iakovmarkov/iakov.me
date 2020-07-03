@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 import Link from "@/components/Link";
 import removeExcerpt from "@/utils/removeExcerpt";
 import { PostElementProps } from ".";
+import { FunctionComponent } from "react";
 
 const useStyles = createUseStyles({
   readMoreLink: {
@@ -10,7 +11,7 @@ const useStyles = createUseStyles({
     fontSize: "0.8em",
     display: "inline-block",
     padding: ({ theme }) => `${theme.size.sm}px ${theme.size.md}px`,
-    border: ({ theme }) => `2px solid ${theme.color.border}`,
+    border: ({ theme }) => `2px solid ${theme.font.color.main}`,
     color: ({ theme }) => theme.font.color.main,
     background: ({ theme }) => theme.color.background,
     "&:hover,&:active": {
@@ -50,11 +51,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Post: React.FunctionComponent<PostElementProps> = ({
-  slug,
-  post,
-  short,
-}) => {
+const Post: FunctionComponent<PostElementProps> = ({ slug, post, short }) => {
   const theme = useTheme();
   const classes = useStyles({ theme, short });
   const href = `/blog/${slug}`;

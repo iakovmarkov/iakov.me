@@ -1,5 +1,6 @@
 import Link from "@/components/Link";
 import { createUseStyles, useTheme } from "react-jss";
+import { FunctionComponent } from "react";
 
 interface NavProps {
   noIndex?: boolean;
@@ -32,7 +33,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Nav: React.FunctionComponent<NavProps> = ({ noIndex }) => {
+const Nav: FunctionComponent<NavProps> = ({ noIndex }) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 

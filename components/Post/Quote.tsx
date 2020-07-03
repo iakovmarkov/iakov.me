@@ -2,6 +2,7 @@ import { createUseStyles, useTheme } from "react-jss";
 import ReactMarkdown from "react-markdown";
 import { PostElementProps } from ".";
 import removeExcerpt from "@/utils/removeExcerpt";
+import { FunctionComponent } from "react";
 
 const useStyles = createUseStyles({
   title: {
@@ -31,7 +32,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Post: React.FunctionComponent<PostElementProps> = ({ post, short }) => {
+const Post: FunctionComponent<PostElementProps> = ({ post, short }) => {
   const theme = useTheme();
   const classes = useStyles({ theme, short });
 

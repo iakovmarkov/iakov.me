@@ -1,6 +1,7 @@
 import { createUseStyles, useTheme } from "react-jss";
 import Link from "@/components/Link";
 import { PostElementProps } from ".";
+import { FunctionComponent } from "react";
 
 const useStyles = createUseStyles({
   title: {
@@ -25,11 +26,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Post: React.FunctionComponent<PostElementProps> = ({
-  slug,
-  post,
-  short,
-}) => {
+const Post: FunctionComponent<PostElementProps> = ({ slug, post, short }) => {
   const theme = useTheme();
   const classes = useStyles({ theme, short });
   const href = `/blog/${slug}`;

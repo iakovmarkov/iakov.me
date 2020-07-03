@@ -3,6 +3,7 @@ import BlogPost from "./Blog";
 import QuotePost from "./Quote";
 import ImagePost from "./Image";
 import * as r from "ramda";
+import { FunctionComponent } from "react";
 
 const isImagePost = r.where({
   content: r.isEmpty,
@@ -27,7 +28,7 @@ export interface PostElementProps extends Partial<PostProps> {
   post: GrayMatterFile<string>;
 }
 
-const Post = ({ raw, ...props }: PostProps) => {
+const Post: FunctionComponent<PostProps> = ({ raw, ...props }) => {
   const post = matter(raw, MATTER_OPTS);
 
   const element = r.cond([

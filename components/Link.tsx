@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import NextLink from "next/link";
+import { FunctionComponent } from "react";
 
 interface RenderFunctionProps {
   href?: string;
@@ -9,21 +10,21 @@ interface RenderFunctionProps {
 
 type RenderFunction = (props: RenderFunctionProps) => React.ReactElement;
 
-type LinkProps = React.PropsWithChildren<{
-  to?: string;
-  as?: string;
-  href?: string;
-  children: React.ReactNode | RenderFunction;
-}>;
-
 const defaultRenderFn: RenderFunction = ({ content, isActive }) => (
   <a className={isActive ? "isActive" : ""}>{content}</a>
 );
 
-const Link = ({ href, to, as, children }: LinkProps) => {
+interface LinkProps {
+  to?: string;
+  as?: string;
+  href?: string;
+  children: React.ReactNode | RenderFunction;
+}
+
+const Link: FunctionComponent<LinkProps> = ({ href, to, as, children }) => {
   const router = useRouter();
   const isActive = to && to !== "/" ? router.asPath.includes(to) : false;
-  let renderFn: (props: RenderFunctionProps) => any;
+  let renderFn: RenderFunction;
   let content: string = "";
 
   if (typeof children === "function") {

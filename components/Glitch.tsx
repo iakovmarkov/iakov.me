@@ -1,5 +1,6 @@
 import { createUseStyles } from "react-jss";
 import * as r from "ramda";
+import { FunctionComponent } from "react";
 
 /**
  * Inspired by CodePen by Alain Barrios
@@ -209,7 +210,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Glitch = ({ children }: React.PropsWithChildren<{}>) => {
+const Glitch: FunctionComponent = ({ children }) => {
   const classes = useStyles();
 
   const glitches = r.pipe(

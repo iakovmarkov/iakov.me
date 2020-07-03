@@ -1,6 +1,7 @@
 import { createUseStyles, useTheme } from "react-jss";
 import Head from "@/components/Head";
 import Nav from "@/components/Nav";
+import { FunctionComponent } from "react";
 
 interface LayoutProps {
   children?: React.ReactChild | React.ReactChild[];
@@ -30,7 +31,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Layout: React.FunctionComponent<LayoutProps> = (props) => {
+const Layout: FunctionComponent<LayoutProps> = (props) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
   const { children } = props;
