@@ -2,9 +2,10 @@
 
 Code for my personal webiste, [iakov.me](https://iakov.me/)
 
-## TODO
+## FIXME
 
-[] `Post/Image.tsx` contains a silly html injection from the blog posts, because I'm too lazy to re-type the credits from Unsplash every time I copy the picture. This might lead to XSS! So cool.
+[ ] `Post/Image.tsx` contains a silly html injection from the blog posts, because I'm too lazy to re-type the credits from Unsplash every time I copy the picture. This might lead to XSS! So cool.
+[ ] Excerpt is still being shown when deployed on Zeit, wtf?
 
 ## Credits
 

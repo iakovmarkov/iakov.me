@@ -57,7 +57,10 @@ const Post: FunctionComponent<PostElementProps> = (props) => {
   const theme = useTheme();
   const classes = useStyles({ theme, short });
   const href = `/blog/${slug}`;
-
+  /* tslint:disable */
+  console.warn(post);
+  console.log(removeExcerpt(post.content));
+  /* tslint:enable */
   return (
     <>
       <Link to="/blog/[slug]" as={href}>
