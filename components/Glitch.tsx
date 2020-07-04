@@ -45,6 +45,9 @@ const useStyles = createUseStyles({
   },
   element: {
     backgroundImage: "url(/zizkov.jpg)",
+    "@media only screen and (min-width: 1080px)": {
+      backgroundImage: "url(/zizkov@2x.jpg)",
+    },
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
