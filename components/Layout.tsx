@@ -27,6 +27,7 @@ const useStyles = createUseStyles({
   },
   contentContainer: {
     width: "100%",
+    padding: ({ theme }) => `${theme.size.lg}px ${theme.size.lg}px`,
     maxWidth: ({ theme }) => theme.size.width,
   },
 });

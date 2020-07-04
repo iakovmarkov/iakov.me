@@ -39,7 +39,7 @@ const useStyles = createUseStyles({
   glitchContainer: {},
   contentContainer: {
     zIndex: 999,
-    maxWidth: 500,
+    maxWidth: 550,
     width: "100%",
     padding: ({ theme }) => `${theme.size.lg}px`,
   },

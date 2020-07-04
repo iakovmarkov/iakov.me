@@ -7,6 +7,8 @@ import Post, { PostProps } from "@/components/Post";
 const useStyles = createUseStyles({
   list: {
     listStyle: "none",
+    margin: 0,
+    padding: 0,
   },
   listItem: {
     borderBottom: ({ theme }) => `1px solid ${theme.color.border}`,

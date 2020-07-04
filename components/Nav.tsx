@@ -18,6 +18,8 @@ const useStyles = createUseStyles({
     flexDirection: "row",
     justifyContent: "center",
     listStyle: "none",
+    padding: 0,
+    margin: 0,
   },
   listItem: {
     fontFamily: ({ theme }) => theme.font.family.title,
@@ -26,6 +28,9 @@ const useStyles = createUseStyles({
     display: "block",
     padding: ({ theme }) => `${theme.size.lg}px ${theme.size.lg * 2}px`,
     borderBottom: ({ theme }) => `${theme.size.sm}px solid transparent`,
+    "@media only screen and (max-width: 768px)": {
+      padding: ({ theme }) => `${theme.size.md}px ${theme.size.md * 2}px`,
+    },
 
     "&.isActive": {
       borderBottomColor: ({ theme }) => theme.color.border,
