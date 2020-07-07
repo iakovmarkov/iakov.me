@@ -1,8 +1,8 @@
+import { FunctionComponent } from "react";
 import { createUseStyles, useTheme } from "react-jss";
-import ReactMarkdown from "react-markdown";
 import { PostElementProps } from ".";
 import removeExcerpt from "@/utils/removeExcerpt";
-import { FunctionComponent } from "react";
+import Markdown from "./Markdown";
 
 const useStyles = createUseStyles({
   title: {
@@ -56,7 +56,7 @@ const Post: FunctionComponent<PostElementProps> = ({ post, short }) => {
         )}
       </div>
       <div className={classes.content}>
-        <ReactMarkdown source={removeExcerpt(post.content)} />
+        <Markdown>{removeExcerpt(post.content)}</Markdown>
       </div>
     </>
   );

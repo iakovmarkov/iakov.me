@@ -25,7 +25,7 @@ Features:
 * [ ] Post type: spotify post
 * [x] Post content: parse markdown
 * [ ] Post content: make it look nice
-* [ ] Post content: code with synthax highlight
+* [x] Post content: code with synthax highlight
 * [ ] Blog: pagination
 * [ ] Blog: search by tag (taxonomy)
 * [ ] Blog: all tags view

@@ -1,9 +1,9 @@
 import { FunctionComponent } from "react";
 import { createUseStyles, useTheme } from "react-jss";
-import ReactMarkdown from "react-markdown";
 import Link from "@/components/Link";
 import removeExcerpt from "@/utils/removeExcerpt";
 import Image from "./Image";
+import Markdown from "./Markdown";
 import { PostElementProps } from ".";
 
 const useStyles = createUseStyles({
@@ -85,14 +85,14 @@ const Post: FunctionComponent<PostElementProps> = (props) => {
       <Image {...props} />
       {short ? (
         <>
-          <ReactMarkdown source={post.excerpt} />
+          <Markdown>{post.excerpt}</Markdown>
           <Link to="/blog/[slug]" as={href}>
             {() => <a className={classes.readMoreLink}>Read more</a>}
           </Link>
         </>
       ) : (
         <div className={classes.content}>
-          <ReactMarkdown source={removeExcerpt(post.content)} />
+          <Markdown>{removeExcerpt(post.content)}</Markdown>
         </div>
       )}
     </>
