@@ -44,9 +44,9 @@ const useStyles = createUseStyles({
     padding: ({ theme }) => `${theme.size.lg}px`,
   },
   element: {
-    backgroundImage: "url(/zizkov.jpg)",
+    backgroundImage: "url(/home/zizkov.jpg)",
     "@media only screen and (min-width: 1080px)": {
-      backgroundImage: "url(/zizkov@2x.jpg)",
+      backgroundImage: "url(/home/zizkov@2x.jpg)",
     },
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
