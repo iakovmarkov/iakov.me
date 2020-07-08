@@ -5,6 +5,10 @@ module.exports = withCSS({
       test: /\.md$/,
       use: "raw-loader",
     });
+    config.module.rules.push({
+      test: /\.ya?ml$/,
+      use: "js-yaml-loader",
+    });
     return config;
   },
 });
