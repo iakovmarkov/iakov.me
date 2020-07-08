@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   const classes = useStyles();
 
   return (
@@ -29,4 +29,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default HomePage;

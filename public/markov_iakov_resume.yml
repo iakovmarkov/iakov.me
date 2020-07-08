@@ -50,14 +50,13 @@ skills:
 
 projects:
 - name: iakov.me
-  github: https://github.com/iakovmarkov/iakov.me
-  link: https://iakov.me/blog/00-hello_world
+  link: https://github.com/iakovmarkov/iakov.me
   note: This very website you've found this file at. Intended to be a showcase of my front-end skills.
 - name: prometheus-vuls-exporter
-  github: https://github.com/iakovmarkov/prometheus-vuls-exporter
+  link: https://github.com/iakovmarkov/prometheus-vuls-exporter
   note: A Prometheus exporter that helps you keep track of holes in your infra. I'll write a blog post about it one day.
 - name: svet
-  github: https://github.com/iakovmarkov/svet
+  link: https://github.com/iakovmarkov/svet
   note: I hacked together a client/server application to control chinese lights via bluetooth in my home, from anywhere in the world.
 
 experience:

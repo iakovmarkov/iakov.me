@@ -58,7 +58,7 @@ This example is in `bash`:
 
 ### Horizontal rule
 
-Don't use `---`, it will break! Use `***`:
+Use `***`:
 
 ***
 

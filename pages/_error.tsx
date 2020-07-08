@@ -18,7 +18,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Error: NextPage<ErrorProps> = ({ statusCode }) => {
+const ErrorPage: NextPage<ErrorProps> = ({ statusCode }) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
@@ -35,9 +35,9 @@ const Error: NextPage<ErrorProps> = ({ statusCode }) => {
   );
 };
 
-Error.getInitialProps = ({ res, err }) => {
+ErrorPage.getInitialProps = ({ res, err }) => {
   const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
   return { statusCode };
 };
 
-export default Error;
+export default ErrorPage;

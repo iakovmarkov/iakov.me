@@ -35,8 +35,7 @@ declare module "@/public/markov_iakov_resume.yml" {
 
   interface Project {
     name: string;
-    github: string;
-    link?: string;
+    link: string;
     note: string;
   }
 

@@ -20,7 +20,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const Blog: NextPage<{ posts: PostProps[] }> = ({ posts }) => {
+const BlogPage: NextPage<{ posts: PostProps[] }> = ({ posts }) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
@@ -37,7 +37,7 @@ const Blog: NextPage<{ posts: PostProps[] }> = ({ posts }) => {
   );
 };
 
-Blog.getInitialProps = async () => {
+BlogPage.getInitialProps = async () => {
   const context = (require as any).context("../../posts", true, /\.md$/) as any;
   const keys = context.keys();
   const raw = keys.map(context);
@@ -65,4 +65,4 @@ Blog.getInitialProps = async () => {
   };
 };
 
-export default Blog;
+export default BlogPage;
