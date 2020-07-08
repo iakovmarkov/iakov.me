@@ -24,7 +24,7 @@ Features:
 * [x] Post type: image post
 * [ ] Post type: spotify post
 * [x] Post content: parse markdown
-* [ ] Post content: make it look nice
+* [x] Post content: make it look nice
 * [x] Post content: code with synthax highlight
 * [ ] Blog: pagination
 * [ ] Blog: search by tag (taxonomy)

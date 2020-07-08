@@ -1,14 +1,12 @@
 import { createUseStyles, useTheme } from "react-jss";
 import Link from "@/components/Link";
-import { PostElementProps } from ".";
+import { PostElementProps } from "components/Post";
 import { FunctionComponent } from "react";
 
 const useStyles = createUseStyles({
-  metadataContainer: {
-    margin: ({ theme }) => `0 0 ${theme.size.sm}px`,
-  },
-  metadataText: {
+  attr: {
     fontSize: "0.8em",
+    margin: ({ theme }) => `0 0 ${theme.size.sm}px`,
     color: ({ theme }) => theme.font.color.off,
     fontFamily: ({ theme }) => theme.font.family.title,
   },
@@ -27,31 +25,37 @@ const Image: FunctionComponent<PostElementProps> = ({ slug, post, short }) => {
   const href = `/blog/${slug}`;
 
   const imageEl = (
-    <>
-      <img
-        className={classes.image}
-        src={post.data.image}
-        alt={post.data.imageAlt || post.data.title}
-      />
+    <img
+      className={classes.image}
+      src={post.data.image}
+      alt={post.data.imageAlt || post.data.title}
+    />
+  );
 
-      <div className={classes.metadataContainer}>
-        <div
-          className={classes.metadataText}
-          dangerouslySetInnerHTML={{ __html: post.data.imageAttr }}
-        />
-      </div>
-    </>
+  const attrEl = post.data.imageAttr && (
+    <div
+      className={classes.attr}
+      dangerouslySetInnerHTML={{ __html: post.data.imageAttr }}
+    />
   );
 
   if (short) {
     return (
-      <Link to="/blog/[slug]" as={href}>
-        {imageEl}
-      </Link>
+      <>
+        <Link to="/blog/[slug]" as={href}>
+          {imageEl}
+        </Link>
+        {attrEl}
+      </>
     );
   }
 
-  return imageEl;
+  return (
+    <>
+      {imageEl}
+      {attrEl}
+    </>
+  );
 };
 
 export default Image;

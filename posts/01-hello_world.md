@@ -4,6 +4,7 @@ date: 2020-01-07
 image: /blog/stanislav-kondratiev-9_09JajkRaA-unsplash.jpg
 imageAlt: Aerial view of Ekatrinburg. I was born somewhere here.
 imageAttr: <span>Photo by <a href="https://unsplash.com/@technobulka?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Stanislav Kondratiev</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+mood: excited
 ---
 First post about this website, blog and what I'm going to do with them.
 ---
