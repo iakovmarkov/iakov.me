@@ -1,0 +1,121 @@
+---
+name: Iakov Markov
+email: markov@iakov.me
+website: https://iakov.me/
+location: Prague, Czech republic
+dob: 29.11.1992
+photo: https://iakov.me/profile/full.jpg
+intro: >
+  Hello! I'm Iakov. I'm a software engineer. It's both a job and an occupation, really. I'm passionate about software, open-source technologies and making computers __do stuff__.
+  I've spent most of my career working as a web developer in B2B area. In the last few years I've been focused on an agile leadership role, helping my engineering teams align with business goals.
+  I was born in Yekaterinburg, Russia. I moved to Czechia when I was 19, and I still live in Prague. Apart from working with tech, I play music and love artsy video games.
+
+skills:
+- name: Front-end development
+  note: I've spent most of my career doing this. Naturally, I consider this is my top skill.
+  level: 1
+  tech:
+  - TypeScript
+  - React
+  - Redux
+  - Mobx
+- name: Automation and DevOps
+  note: Applying my programming expertise to automate repetitve work and scale in a meaningful way.
+  level: 0.7
+  tech:
+  - Docker
+  - Jenkins
+  - Prometheus
+  - Golang
+- name: Agile leadership
+  note: I do this for a few years, with varying degrees of success. I use my soft skills to help developers align with business goals.
+  level: 0.5
+- name: Backend and API development
+  note: I've done it once or twice for commercial work.
+  level: 0.3
+  tech:
+  - NodeJS
+  - Python
+  - GraphQL
+  - MongoDB
+  - PHP
+- name: Mobile development
+  note: Very basic understanding, but I'd like to learn more.
+  level: 0.2
+  tech:
+  - React Native
+
+projects:
+- name: iakov.me
+  github: https://github.com/iakovmarkov/iakov.me
+  link: https://iakov.me/blog/00-hello_world
+  note: This very website you've found this file at. Intended to be a showcase of my front-end skills.
+- name: prometheus-vuls-exporter
+  github: https://github.com/iakovmarkov/prometheus-vuls-exporter
+  note: A Prometheus exporter that helps you keep track of holes in your infra. I'll write a blog post about it one day.
+- name: svet
+  github: https://github.com/iakovmarkov/svet
+  note: I hacked together a client/server application to control chinese lights via bluetooth in my home, from anywhere in the world.
+
+experience:
+- role: Cloud Team Lead
+  company: Ataccama
+  from: 03.2019
+  note: I moved to become a direct manager of a team of 5 people. My primary goal was to improve PaaS offer and general Cloud platform capabilities of our software.
+  highlights:
+  - Managed operations and support of 6 customers in production
+  - Driven containerization of Ataccama platform
+  - Worked on creating cloud-native deployment and integration options
+
+- role: Front-end Team Lead
+  company: Ataccama
+  from: 03.2017
+  to: 03.2019
+  note: I've risen to the opportunity to become a lead of the new front-end team. I've been in charge of growing the front-end team as well as maintaining a consistent vision for our codebase.
+  highlights:
+  - Attrcted skilled and motivated front-end engineers to the company
+  - Driven adoption of TypeScript and better quality control tooling
+  - Encouraged cooperation on codebase across separate product teams
+
+- role: Front-end Engineer
+  company: Ataccama
+  from: 09.2016
+  to: 03.2017
+  note: I was hired as one of the first internal front-end developers. I worked on knowledge transfer and handover of the prototype from external consultants to Ataccama employees.
+
+- role: Web Developer
+  company: European Experts
+  from: 12.2015
+  to: 09.2016
+  note: I was the solo front-end developer on a complex Applicant Tracker System software. I was building the architecture of 
+  highlights:
+  - Worked together with a backend developer to quickly bring a prototype into life
+  - Built an SPA with interactive user interface using React and ES6
+
+- role: Front-end Developer
+  company: ViewWorld
+  from: 06.2015
+  to: 10.2016
+  note: I was supporting and adding minor features into an old, but massive Backbone.js codebase. 
+
+- role: Web Developer
+  company: Fairpeople
+  from: 10.2014
+  to: 12.2015
+  note: I've worked on building a e-commerce one-click website and hosting solution. I've used WordPress extensively, developing a custom theme for it and integrating it with other tools.
+
+- role: Freelance Web Developer
+  from: 2013
+  to: 2017
+  note: I've spent a lot of time working on smaller web dev jobs. An occasional website, for a friend of a friend.
+  highlights:
+  - Learned time-management basics
+  - Got to learn lots of skills from Linux servers to PHP and Java
+  
+languages:
+- name: Russian
+  proficiency: Native
+- name: English 
+  proficiency: Full Professional
+- name: Czech
+  proficiency: Full Professional

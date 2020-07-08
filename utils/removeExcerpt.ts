@@ -5,6 +5,6 @@ import * as r from "ramda";
  * Excerpt is the first text block and is separated by `---` from the main post body
  */
 const removeExcerpt = (text: string) =>
-  r.pipe(r.split("---\r\n"), r.last)(text) as string;
+  r.pipe(r.split("---"), r.last)(text) as string;
 
 export default removeExcerpt;
