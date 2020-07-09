@@ -5,6 +5,7 @@ import { PostElementProps } from "@/components/Post";
 
 const useStyles = createUseStyles({
   title: {
+    fontSize: 24,
     margin: ({ theme }) => `${theme.size.sm}px 0px`,
   },
 });
@@ -15,7 +16,7 @@ const Title: FunctionComponent<PostElementProps> = (props) => {
   const classes = useStyles({ theme });
   const href = `/blog/${slug}`;
 
-  const titleEl = <h2 className={classes.title}>{post.data.title}</h2>;
+  const titleEl = <h1 className={classes.title}>{post.data.title}</h1>;
 
   if (short) {
     return (

@@ -11,7 +11,7 @@ const useStyles = createUseStyles({
     alignItems: "start",
     textTransform: "uppercase",
     fontStyle: "italic",
-    fontWeight: 500,
+    fontWeight: 600,
   },
   list: {
     display: "flex",

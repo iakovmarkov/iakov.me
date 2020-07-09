@@ -1,5 +1,11 @@
 const withCSS = require("@zeit/next-css");
-module.exports = withCSS({
+const withFonts = require("next-fonts");
+const R = require("ramda");
+
+module.exports = R.pipe(
+  withCSS,
+  withFonts
+)({
   webpack: function (config) {
     config.module.rules.push({
       test: /\.md$/,

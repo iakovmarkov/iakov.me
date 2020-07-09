@@ -1,55 +1,25 @@
 import { FunctionComponent } from "react";
-import ReactMarkdown from "react-markdown";
 import { createUseStyles, useTheme } from "react-jss";
+import { SkillLevel } from "@/components/Profile/components";
 import {
-  Section,
   Item,
   ItemTitle,
   ItemName,
   ItemInfo,
   ItemText,
   ItemList,
-  SkillLevel,
-} from "@/components/About/components";
+} from "@/components/Profile/components/Item";
+import { Section } from "@/components/Profile/components/Section";
 import Icon from "@/components/Icon";
 import Tag from "@/components/Tag";
 import getDateDiff from "@/utils/getDateDiff";
-import resume from "@/public/markov_iakov_resume.yml";
+import { Resume } from "@/public/markov_iakov_resume.yml";
+
+interface ProfileProps {
+  profile: Resume;
+}
 
 const useStyles = createUseStyles({
-  title: ({ theme }) => ({
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    margin: `0 0 ${theme.size.lg}px 0`,
-  }),
-  titleText: ({ theme }) => ({
-    margin: 0,
-  }),
-  titleLink: ({ theme }) => ({
-    color: theme.font.color.off,
-    fontSize: "32px",
-    height: "32px",
-  }),
-  introContainer: {
-    display: "flex",
-    flexDirection: "row",
-  },
-  intro: ({ theme }) => ({
-    flex: 2,
-
-    "& p": {
-      margin: `0 0 ${theme.size.md}px`,
-    },
-  }),
-  photo: ({ theme }) => ({
-    flex: 1,
-    margin: `0 0 0 ${theme.size.lg}px`,
-  }),
-  photoLink: {
-    display: "block",
-    lineHeight: 0,
-  },
   experienceAt: ({ theme }) => ({
     color: theme.font.color.off,
   }),
@@ -65,44 +35,26 @@ const useStyles = createUseStyles({
     lineHeight: "16px",
     color: theme.font.color.main,
   }),
+  projectURL: {
+    display: "none",
+    fontSize: "0.8em",
+    margin: "0 8px",
+    "@media print": {
+      display: "inline",
+    },
+  },
 });
 
-const About: FunctionComponent = () => {
+const Profile: FunctionComponent<ProfileProps> = ({ profile, children }) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
   return (
     <>
-      <div className={classes.title}>
-        <h1 className={classes.titleText}>About me</h1>
-        <a
-          className={classes.titleLink}
-          href="/markov_iakov_resume.yml"
-          title="Download resume as YML"
-        >
-          <Icon icon="document-file-yml" />
-        </a>
-      </div>
-      <div className={classes.introContainer}>
-        <div className={classes.intro}>
-          <ReactMarkdown source={resume.intro} />
-        </div>
-        <div className={classes.photo}>
-          <a
-            href="/profile/full.jpg"
-            target="_blank"
-            className={classes.photoLink}
-          >
-            <img
-              src={"/profile/avatar.jpg" || resume.photo}
-              alt={resume.name}
-            />
-          </a>
-        </div>
-      </div>
+      {children}
 
       <Section title="Experience">
-        {resume.experience.map((exp) => {
+        {profile.experience.map((exp) => {
           const lengthHint = `${exp.from} - ${exp.to || "Now"}`;
           const { diffYears, diffMonths } = getDateDiff(exp.from, exp.to);
 
@@ -129,16 +81,14 @@ const About: FunctionComponent = () => {
                 </ItemInfo>
               </ItemTitle>
               <ItemText>{exp.note}</ItemText>
-              <ItemList items={exp.highlights}>
-                <i>Highlights:</i>
-              </ItemList>
+              <ItemList items={exp.highlights}></ItemList>
             </Item>
           );
         })}
       </Section>
 
       <Section title="Skills">
-        {resume.skills.map((skill) => {
+        {profile.skills.map((skill) => {
           return (
             <Item key={skill.name}>
               <ItemTitle>
@@ -149,13 +99,11 @@ const About: FunctionComponent = () => {
               </ItemTitle>
               <ItemText>{skill.note}</ItemText>
               {skill.tech && (
-                <ItemText>
-                  <div className={classes.tags}>
-                    {skill.tech.map((tag) => (
-                      <Tag key={tag}>{tag}</Tag>
-                    ))}
-                  </div>
-                </ItemText>
+                <div className={classes.tags}>
+                  {skill.tech.map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
+                  ))}
+                </div>
               )}
             </Item>
           );
@@ -163,20 +111,29 @@ const About: FunctionComponent = () => {
       </Section>
 
       <Section title="Projects">
-        {resume.projects.map((project) => {
+        {profile.projects.map((project) => {
           return (
             <Item key={project.name}>
               <ItemTitle>
                 <ItemName>{project.name}</ItemName>
                 <ItemInfo>
                   {project.link && (
-                    <a
-                      href={project.link}
-                      className={classes.projectLink}
-                      target="_blank"
-                    >
-                      <Icon icon="new-tab" />
-                    </a>
+                    <>
+                      <a
+                        href={project.link}
+                        className={classes.projectURL}
+                        target="_blank"
+                      >
+                        {project.link}
+                      </a>
+                      <a
+                        href={project.link}
+                        className={classes.projectLink}
+                        target="_blank"
+                      >
+                        <Icon icon="new-tab" />
+                      </a>
+                    </>
                   )}
                 </ItemInfo>
               </ItemTitle>
@@ -187,7 +144,7 @@ const About: FunctionComponent = () => {
       </Section>
 
       <Section title="Languages">
-        {resume.languages.map((lang) => {
+        {profile.languages.map((lang) => {
           return (
             <Item key={lang.name}>
               <ItemTitle>
@@ -202,4 +159,4 @@ const About: FunctionComponent = () => {
   );
 };
 
-export default About;
+export default Profile;

@@ -1,11 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Poppins:ital,wght@0,400;0,600;1,600;1,900&display=swap');
+@media only screen {
+  @font-face {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 400;
+    src: local('PT Serif'), local('PTSerif-Regular'), url(/fonts/PTSerif-Regular.ttf);
+  }
+  @font-face {
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 700;
+    src: local('PT Serif Bold'), local('PTSerif-Bold'), url(/fonts/PTSerif-Bold.ttf);
+  }
+  @font-face {
+    font-family: 'PT Serif';
+    font-style: italic;
+    font-weight: 400;
+    src: local('PT Serif Italic'), local('PTSerif-RegularItalic'), url(/fonts/PTSerif-RegularItalic.ttf);
+  }
+  @font-face {
+    font-family: 'PT Serif';
+    font-style: italic;
+    font-weight: 700;
+    src: local('PT Serif BoldItalic'), local('PTSerif-BoldItalic'), url(/fonts/PTSerif-BoldItalic.ttf);
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Poppins Regular'), local('Poppins-Regular'), url(/fonts/Poppins-Regular.ttf);
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Poppins Regular'), local('Poppins-Regular'), url(/fonts/Poppins-Regular.ttf);
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Poppins SemiBold'), local('Poppins-SemiBold'), url(/fonts/Poppins-SemiBold.ttf);
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 600;
+    src: local('Poppins SemiBoldItalic'), local('Poppins-SemiBoldItalic'), url(/fonts/Poppins-SemiBoldItalic.ttf);
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 900;
+    src: local('Poppins BlackItalic'), local('Poppins-BlackItalic'), url(/fonts/Poppins-BlackItalic.ttf);
+  }
+}
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'PT Serif', serif;
+  font-family: PT Serif, serif;
   line-height: 1.5;
 }
 
@@ -13,8 +68,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
-  font-family: 'Poppins', sans-serif;
+h5, .tag {
+  font-family: Poppins, sans-serif;
 }
 
 body, html, #__next {
@@ -28,4 +83,14 @@ a {
 
 img {
   max-width: 100%;
+}
+
+@media only print {
+  html {
+    zoom: 0.80; /*workaround for phantomJS2 rendering pages too large*/
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
 }

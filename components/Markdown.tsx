@@ -2,8 +2,8 @@ import { FunctionComponent } from "react";
 import { createUseStyles, useTheme } from "react-jss";
 import ReactMarkdown, { ReactMarkdownProps } from "react-markdown";
 import { PostElementProps } from "@/components/Post";
-import CodeBlock from "./CodeBlock";
-import ListItem from "./ListItem";
+import CodeBlock from "./Post/components/CodeBlock";
+import ListItem from "./Post/components/ListItem";
 
 interface MarkdownProps
   extends Partial<ReactMarkdownProps>,
@@ -90,7 +90,7 @@ const useStyles = createUseStyles({
       padding: `${theme.size.sm}px ${theme.size.md}px`,
       fontFamily: theme.font.family.title,
       textAlign: "left",
-      fontWeight: "normal",
+      fontWeight: 600,
     },
     "& td": {
       padding: `${theme.size.sm}px ${theme.size.md}px`,

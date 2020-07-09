@@ -7,7 +7,9 @@ const useStyles = createUseStyles({
     padding: ({ theme }) => `0 ${theme.size.sm}px`,
     margin: ({ theme }) => `-1px ${theme.size.sm}px -1px 0`,
     border: ({ theme }) => `1px solid ${theme.color.border}`,
-    fontFamily: ({ theme }) => theme.font.family.title,
+    fontFamily: ({ theme }) => "Poppins, sans-serif",
+    fontWeight: 400,
+    fontStyle: "normal",
   },
 });
 

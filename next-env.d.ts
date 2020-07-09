@@ -26,13 +26,14 @@ declare module "@/public/markov_iakov_resume.yml" {
   declare let resume: Resume;
   export default resume;
 
-  interface Resume {
+  export interface Resume {
     name: string;
     email: string;
     website: string;
     location: string;
     dob: string;
     photo: string;
+    about: string;
     intro: string;
     skills: Skill[];
     projects: Project[];

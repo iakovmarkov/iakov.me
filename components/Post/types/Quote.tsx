@@ -3,7 +3,7 @@ import { createUseStyles, useTheme } from "react-jss";
 import { PostElementProps } from "@/components/Post";
 import removeExcerpt from "@/utils/removeExcerpt";
 import Metadata from "@/components/Post/components/Metadata";
-import Markdown from "@/components/Post/components/Markdown";
+import Markdown from "@/components/Markdown";
 import Title from "@/components/Post/components/Title";
 
 const useStyles = createUseStyles({

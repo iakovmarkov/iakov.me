@@ -33,7 +33,7 @@ const KNOWN_KEYS = ["title", "date", "tags", "image", "imageAlt", "imageAttr"];
 const getOtherMeta = r.curry((keys: string[], data: object) =>
   r.pipe(
     r.keys,
-    r.reject((key) => keys.includes(key)),
+    r.reject((key: string) => keys.includes(key)),
     r.map((key) => ({ key, value: r.path([key], data) }))
   )(data)
 );

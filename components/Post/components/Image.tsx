@@ -2,7 +2,7 @@ import { createUseStyles, useTheme } from "react-jss";
 import Link from "@/components/Link";
 import { PostElementProps } from "@/components/Post";
 import { FunctionComponent } from "react";
-import Markdown from "@/components/Post/components/Markdown";
+import Markdown from "@/components/Markdown";
 
 const useStyles = createUseStyles({
   attr: {

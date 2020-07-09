@@ -5,7 +5,7 @@ import removeExcerpt from "@/utils/removeExcerpt";
 import Title from "@/components/Post/components/Title";
 import Image from "@/components/Post/components/Image";
 import Metadata from "@/components/Post/components/Metadata";
-import Markdown from "@/components/Post/components/Markdown";
+import Markdown from "@/components/Markdown";
 import { PostElementProps } from "@/components/Post";
 
 const useStyles = createUseStyles({

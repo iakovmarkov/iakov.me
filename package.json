@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild-resume": "next build",
+    "build-resume": "node ./build-resume.js",
     "format": "prettier ./*.{js,ts,tsx} components/**/*.{ts,tsx} pages/**/*.{ts,tsx} --write",
     "lint": "tslint --project tsconfig.json components/**/*.{ts,tsx} pages/**/*.{ts,tsx}",
     "dev": "next dev",
@@ -24,6 +26,7 @@
     "husky": "^4.2.1",
     "js-yaml-loader": "^1.2.2",
     "next": "9.4.4",
+    "next-fonts": "^1.3.0",
     "normalize.css": "^8.0.1",
     "prettier": "^2.0.5",
     "ramda": "^0.27.0",
@@ -37,5 +40,8 @@
     "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "phantomjs": "^2.1.7"
   }
 }
