@@ -1,6 +1,5 @@
 import NextHead from "next/head";
 import { FunctionComponent } from "react";
-import "@/utils/global.css";
 
 const TITLE = "iakov.me";
 

@@ -23,9 +23,7 @@ const ErrorPage: NextPage = () => {
       <Head />
       <Glitch flip>
         <h1 className={classes.text}>You should not be here</h1>
-        <div className={classes.subtext}>
-          An error has occured
-        </div>
+        <div className={classes.subtext}>An error has occured</div>
       </Glitch>
     </>
   );

@@ -4,7 +4,7 @@ import { createUseStyles, useTheme } from "react-jss";
 const useStyles = createUseStyles({
   item: ({ theme }) => ({
     margin: `${theme.size.md}px 0 ${theme.size.lg}px`,
-    padding: `0 0 ${theme.size.md}px`,
+    padding: `${theme.size.md}px 0 ${theme.size.md}px`,
   }),
   itemTitle: ({ theme }) => ({
     display: "flex",

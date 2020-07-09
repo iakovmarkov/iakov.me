@@ -1,8 +1,9 @@
 import NextApp from "next/app";
 import { ThemeProvider } from "react-jss";
+import theme from "@/utils/theme";
 
 import "normalize.css";
-import theme from "@/utils/theme";
+import "@/utils/global.css";
 
 export default class App extends NextApp {
   /**
