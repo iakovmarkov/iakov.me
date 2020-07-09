@@ -5,7 +5,7 @@ const useStyles = createUseStyles({
   tag: {
     display: "inline-block",
     padding: ({ theme }) => `0 ${theme.size.sm}px`,
-    margin: ({ theme }) => `-1px ${theme.size.sm}px`,
+    margin: ({ theme }) => `-1px ${theme.size.sm}px -1px 0`,
     border: ({ theme }) => `1px solid ${theme.color.border}`,
     fontFamily: ({ theme }) => theme.font.family.title,
   },

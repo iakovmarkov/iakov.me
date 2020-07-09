@@ -1,8 +1,7 @@
 
-const getDate = (s?: number) => {
-    if (s) {
-      const parsed: any = s.toString().split('.').map(s => Number(s)).reverse()
-      console.log(parsed)
+const getDate = (raw?: number) => {
+    if (raw) {
+      const parsed: any = raw.toString().split('.').map(s => Number(s)).reverse()
       return new Date(parsed[0], parsed[1] || 1)
     }
     return new Date(Date.now())

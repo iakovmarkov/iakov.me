@@ -217,7 +217,7 @@ const Glitch: FunctionComponent = ({ children }) => {
 
   const glitches = r.pipe(
     r.range(0),
-    r.map((x) => <div className={classes.element} />)
+    r.map((x) => <div key={`glitch_${x}`} className={classes.element} />)
   )(5);
 
   return (

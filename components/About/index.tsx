@@ -12,6 +12,7 @@ import {
   SkillLevel,
 } from "@/components/About/components";
 import Icon from "@/components/Icon";
+import Tag from "@/components/Tag";
 import getDateDiff from "@/utils/getDateDiff";
 import resume from "@/public/markov_iakov_resume.yml";
 
@@ -51,6 +52,18 @@ const useStyles = createUseStyles({
   },
   experienceAt: ({ theme }) => ({
     color: theme.font.color.off,
+  }),
+  experienceLength: ({ theme }) => ({
+    color: theme.font.color.off,
+  }),
+  tags: ({ theme }) => ({
+    display: "inline-block",
+    fontSize: "0.8em",
+  }),
+  projectLink: ({ theme }) => ({
+    fontSize: 20,
+    lineHeight: "16px",
+    color: theme.font.color.main,
   }),
 });
 
@@ -107,7 +120,7 @@ const About: FunctionComponent = () => {
                   {companyEl}
                 </ItemName>
                 <ItemInfo>
-                  <span title={lengthHint}>
+                  <span className={classes.experienceLength} title={lengthHint}>
                     {diffYears > 0 && `${diffYears} year`}
                     {diffYears ? 1 && "s " : " "}
                     {diffMonths > 0 && `${diffMonths} month`}
@@ -137,10 +150,11 @@ const About: FunctionComponent = () => {
               <ItemText>{skill.note}</ItemText>
               {skill.tech && (
                 <ItemText>
-                  Technologies:{" "}
-                  {skill.tech.map((t) => (
-                    <span key={t}>{t}, </span>
-                  ))}
+                  <div className={classes.tags}>
+                    {skill.tech.map((tag) => (
+                      <Tag key={tag}>{tag}</Tag>
+                    ))}
+                  </div>
                 </ItemText>
               )}
             </Item>
@@ -156,8 +170,12 @@ const About: FunctionComponent = () => {
                 <ItemName>{project.name}</ItemName>
                 <ItemInfo>
                   {project.link && (
-                    <a href={project.link} target="_blank">
-                      <Icon icon="one-finger" />
+                    <a
+                      href={project.link}
+                      className={classes.projectLink}
+                      target="_blank"
+                    >
+                      <Icon icon="new-tab" />
                     </a>
                   )}
                 </ItemInfo>

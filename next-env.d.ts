@@ -1,9 +1,30 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
 
+declare module "@/utils/iconSet" {
+  declare let iconSet: object;
+  export default iconSet;
+}
+
+declare module "react-icomoon" {
+  declare let comp: React.FunctionComponent<IconProps>;
+  export default comp;
+
+  export interface IconProps {
+    iconSet: object;
+    icon: string;
+    size?: number | string;
+    color?: string;
+    style?: object;
+    className?: string;
+    disableFill?: boolean;
+    removeInlineStyle?: boolean;
+  }
+}
+
 declare module "@/public/markov_iakov_resume.yml" {
-  declare let r: Resume;
-  export default r;
+  declare let resume: Resume;
+  export default resume;
 
   interface Resume {
     name: string;

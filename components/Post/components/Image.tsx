@@ -2,6 +2,7 @@ import { createUseStyles, useTheme } from "react-jss";
 import Link from "@/components/Link";
 import { PostElementProps } from "@/components/Post";
 import { FunctionComponent } from "react";
+import Markdown from "@/components/Post/components/Markdown";
 
 const useStyles = createUseStyles({
   attr: {
@@ -9,6 +10,9 @@ const useStyles = createUseStyles({
     margin: ({ theme }) => `0 0 ${theme.size.sm}px`,
     color: ({ theme }) => theme.font.color.off,
     fontFamily: ({ theme }) => theme.font.family.title,
+    "& > *": {
+      margin: 0,
+    },
   },
   image: {
     maxWidth: "100%",
@@ -33,10 +37,7 @@ const Image: FunctionComponent<PostElementProps> = ({ slug, post, short }) => {
   );
 
   const attrEl = post.data.imageAttr && (
-    <div
-      className={classes.attr}
-      dangerouslySetInnerHTML={{ __html: post.data.imageAttr }}
-    />
+    <Markdown className={classes.attr} source={post.data.imageAttr} />
   );
 
   if (short) {

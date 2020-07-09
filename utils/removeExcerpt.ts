@@ -6,7 +6,7 @@ import * as r from "ramda";
  */
 const removeExcerpt = (text: string) =>
   r.pipe(
-    r.replace("\r\n", "\n"),
+    r.replace("---\r\n", "---\n"),
     r.split("---\n"), 
     r.last,
   )(text) as string;

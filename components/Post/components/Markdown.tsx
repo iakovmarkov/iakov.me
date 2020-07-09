@@ -108,9 +108,12 @@ const Markdown: FunctionComponent<MarkdownProps> = (props) => {
   const classes = useStyles({ theme, short });
 
   return (
-    <div className={classes.content}>
-      <ReactMarkdown source={children} renderers={RENDERERS} {...props} />
-    </div>
+    <ReactMarkdown
+      className={classes.content}
+      source={children}
+      renderers={RENDERERS}
+      {...props}
+    />
   );
 };
 

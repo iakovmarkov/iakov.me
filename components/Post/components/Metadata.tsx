@@ -51,14 +51,14 @@ const Metadata: FunctionComponent<PostElementProps> = (props) => {
       </div>
       {post.data.tags && post.data.tags.length && (
         <div className={classes.content}>
-          Tags:
+          Tags:&nbsp;&nbsp;
           {post.data.tags.map((tag: string) => (
             <Tag key={tag}>{tag}</Tag>
           ))}
         </div>
       )}
       {otherMeta.map(({ key, value }) => (
-        <div className={classes.content}>
+        <div key={key} className={classes.content}>
           <span className={classes.key}>{key}</span>: {value}
         </div>
       ))}

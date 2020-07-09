@@ -8,6 +8,11 @@ const useStyles = createUseStyles({
   sectionTitle: ({ theme }) => ({
     margin: `${theme.size.lg}px 0 0`,
   }),
+  sectionContent: ({ theme }) => ({
+    marginLeft: 2,
+    paddingLeft: theme.size.lg,
+    borderLeft: `2px solid ${theme.font.color.main}`,
+  }),
 
   item: ({ theme }) => ({
     margin: `${theme.size.md}px 0 ${theme.size.lg}px`,
@@ -23,15 +28,16 @@ const useStyles = createUseStyles({
   itemName: {
     margin: 0,
   },
-  itemInfo: ({ theme }) => ({
+  itemInfo: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     fontFamily: "'Poppins', sans-serif",
     fontSize: "0.9em",
-    color: theme.font.color.off,
-    cursor: "help",
-  }),
+    "& *[title]": {
+      cursor: "help",
+    },
+  },
   itemText: ({ theme }) => ({
     margin: `0 0 ${theme.size.sm}px`,
   }),
@@ -77,7 +83,7 @@ export const Section: FunctionComponent<any> = ({ title, children }) => {
   return (
     <div className={classes.section}>
       <h2 className={classes.sectionTitle}>{title}</h2>
-      {children}
+      <div className={classes.sectionContent}>{children}</div>
     </div>
   );
 };
