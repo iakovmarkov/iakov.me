@@ -1,5 +1,5 @@
-import NextHead from "next/head";
 import { FunctionComponent } from "react";
+import NextHead from "next/head";
 
 const TITLE = "iakov.me";
 const DESCRIPTION =
@@ -24,9 +24,9 @@ const Head: FunctionComponent<HeadProps> = ({ title }) => (
     <meta property="og:image" content={IMAGE} />
     <meta property="og:description" content={DESCRIPTION} />
 
-    <meta itemprop="name" content={getTitle(title)} />
-    <meta itemprop="description" content={DESCRIPTION} />
-    <meta itemprop="image" content={IMAGE} />
+    <meta {...{ itemprop: "name" }} content={getTitle(title)} />
+    <meta {...{ itemprop: "description" }} content={DESCRIPTION} />
+    <meta {...{ itemprop: "image" }} content={IMAGE} />
   </NextHead>
 );
 
