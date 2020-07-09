@@ -1,7 +1,7 @@
 import matter, { GrayMatterOption, GrayMatterFile } from "gray-matter";
-import BlogPost from "./Blog";
-import QuotePost from "./Quote";
-import MediaPost from "./Media";
+import BlogPost from "./types/Blog";
+import QuotePost from "./types/Quote";
+import MediaPost from "./types/Media";
 import * as r from "ramda";
 import { FunctionComponent } from "react";
 
