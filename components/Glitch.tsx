@@ -2,6 +2,10 @@ import { createUseStyles, useTheme } from "react-jss";
 import * as r from "ramda";
 import { FunctionComponent } from "react";
 
+interface GlitchProps {
+  flip?: boolean;
+}
+
 const BLEND_COLORS = ["transparent", "#af4949"];
 const BLEND_MODES = ["none", "overlay"];
 const ANIMATION_TIME = "8s";
@@ -43,11 +47,12 @@ const useStyles = createUseStyles({
     width: "100%",
     padding: ({ theme }) => `${theme.size.lg}px`,
   },
-  element: {
+  element: ({ flip }) => ({
     backgroundImage: "url(/home/zizkov.jpg)",
     "@media only screen and (min-width: 1080px)": {
       backgroundImage: "url(/home/zizkov@2x.jpg)",
     },
+    transform: flip ? "rotate(180deg)" : null,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -82,7 +87,7 @@ const useStyles = createUseStyles({
       backgroundBlendMode: BLEND_MODES[1],
       animationName: "$flash",
     },
-  },
+  }),
   "@keyframes flash": {
     "0%,5%": {
       opacity: 0.2,
@@ -211,9 +216,9 @@ const useStyles = createUseStyles({
   },
 });
 
-const Glitch: FunctionComponent = ({ children }) => {
+const Glitch: FunctionComponent<GlitchProps> = ({ children, flip }) => {
   const theme = useTheme();
-  const classes = useStyles({ theme });
+  const classes = useStyles({ theme, flip });
 
   const glitches = r.pipe(
     r.range(0),
