@@ -57,6 +57,7 @@ export const Intro: FunctionComponent<any> = ({ children, links, title }) => {
               className={classes.titleLink}
               href={link.href}
               title={link.title}
+              target="_blank"
             >
               {link.el}
             </a>
