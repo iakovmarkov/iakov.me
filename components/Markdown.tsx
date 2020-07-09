@@ -19,13 +19,15 @@ const useStyles = createUseStyles({
 
     "& > p:first-of-type::first-letter": !short && {
       float: "left",
-      fontSize: "350%",
-      lineHeight: 2,
-      padding: `${theme.size.sm}px ${theme.size.sm}px ${theme.size.sm}px 0px`,
+      fontSize: "48px",
+      lineHeight: "30px",
+      padding: `${theme.size.md}px ${theme.size.sm}px 0 0px`,
+      verticalAlign: "baseline",
     },
 
     "& p": {
       margin: `${theme.size.md}px 0 ${theme.size.sm}px`,
+      verticalAlign: "baseline",
     },
 
     "& a": {
