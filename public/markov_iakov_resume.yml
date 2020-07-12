@@ -5,13 +5,13 @@ website: https://iakov.me/
 location: Prague, Czech republic
 dob: 29.11.1992
 photo: https://iakov.me/profile/full.jpg
-intro: I'm a software engineer with over 5 years of experience in various roles. My main focus lies in building complex front-end applications. I'm passionate about programming, DevOps and open-source technologies. 
+intro: I'm a software engineer with over 6 years of experience in various roles. My main focus lies in building complex front-end applications. I'm most familiar with `TypeScript`, `React`, `Express`, `Python`, and `Linux`. I'm passionate about programming, DevOps, and open-source technologies. 
 about: |
-  Hello! I'm Iakov. I'm a software engineer. It's both a job and an occupation, really. I'm passionate about software, open-source technologies and making computers __do stuff__.  
+  Hello! I'm Iakov. I'm a software engineer. It's both a job and an occupation. I'm passionate about software, open-source technologies, and making computers __do stuff__.  
 
-  I've spent most of my career working as a web developer in B2B area. In the last few years I've been focused on an agile leadership role, helping my engineering teams align with business goals.  
+  I've spent most of my career working as a web developer in the B2B area. In the last few years, I've been focused on an agile leadership role, helping my engineering teams align with business goals.  
 
-  I was born in Yekaterinburg, Russia. I moved to Czechia when I was 19, and I still live in Prague. Apart from working with tech, I play music and love artsy video games.
+  I was born in Yekaterinburg, Russia. I moved to Czechia when I was 19, and I still live in Prague. Apart from tech, I love slow heavy metal and artsy video games.
 
 
 skills:
@@ -22,6 +22,7 @@ skills:
   - TypeScript
   - React
   - Redux
+  - Redux-Saga
   - Apollo GraphQL
   - Jest
   - MobX
@@ -39,8 +40,9 @@ skills:
   - Prometheus
   - ELK Stack
   - AWS
+  - Linux, bash
 - name: Agile leadership
-  note: I do this for a few years, with varying degrees of success. I use my soft skills to help developers align with business goals.
+  note: I've been doing this for a few years, with varying degrees of success. I use my soft skills to help developers align with business goals.
   level: 0.6
 - name: Backend and API development
   note: I've done it once or twice for commercial work.
@@ -58,73 +60,76 @@ skills:
   level: 0.4
   tech:
   - React Native
-  - Expo.JS
+  - Expo.js
 
 projects:
 - name: iakov.me
   link: https://github.com/iakovmarkov/iakov.me
-  note: This very website you've found this resume at. Intended to be a showcase of my technical skills.
+  note: This very website you've found this resume on. Intended to be a showcase of my technical skills. Built using React, TypeScript, JSS, and Next.js.
 - name: prometheus-vuls-exporter
   link: https://github.com/iakovmarkov/prometheus-vuls-exporter
-  note: A Prometheus exporter that helps you keep track of holes in your infra. I'll write a blog post about it one day.
+  note: A Prometheus exporter that helps you keep track of holes in your infra. Written completely in Golang. I'll write a blog post about it one day.
 - name: svet
   link: https://github.com/iakovmarkov/svet
-  note: I hacked together a client/server application to control cheap RGB LED lights via bluetooth in my home, from anywhere in the world.
+  note: I hacked together a client/server application to control cheap RGB LED lights via Bluetooth in my home, from anywhere in the world. Built using React, Node, Expo.js, and Raspberry Pi.
 
 experience:
 - role: Cloud Team Lead
   company: Ataccama
   from: 03.2019
-  note: I moved to become a direct manager of a team of 5 people. My primary goal was to improve PaaS offer and general Cloud platform capabilities of our software.
+  note: I moved to become the direct manager of a team of 5 people. My primary goal was to improve the Ataccama Platform-as-a-Service and the general Cloud platform capabilities of our software.
   highlights:
-  - Managed operations and support of 6 customers in production
-  - Driven containerization of Ataccama platform
-  - Worked on creating cloud-native deployment and integration options
+  - Directly managed a team of 5 Systems Engineers. I facilitated a SCRUM-like workflow, driven cooperation with Support and the Professional Services team, and created a long-term vision for the company's cloud competence.
+  - Ensured smooth sailing of 6 PaaS customers. Implemented an on-call duty structure, as well as a team workflow, enabling quick reaction to both customer and colleague requests.
+  - Driven adoption of Kubernetes and Docker. Those tools allow Ataccama to reduce the complex overhead of manual installation, thus speeding up deployment and maintenance.
+  - Contributed to cloud-native deployment options of Ataccama tools. I created AWS and Azure automated deployment options and participated in delivering Kubernetes-based deployment to customers.
 
 - role: Front-end Team Lead
   company: Ataccama
   from: 03.2017
   to: 03.2019
-  note: I've risen to the opportunity to become a lead of the new front-end team. I've been in charge of growing the front-end team as well as maintaining a consistent vision for our codebase.
+  note: I've risen to the opportunity to become the leader of the Front-end team. I've been in charge of growing the front-end team, as well as maintaining a consistent technical vision.
   highlights:
-  - Attracted skilled and motivated front-end engineers to the company
-  - Driven adoption of TypeScript and better quality control tooling
-  - Encouraged cooperation on codebase across separate product teams
+  - Encouraged cooperation on codebase across separate product teams. This allowed us to reuse a lot of component code and improve UI consistency. Some components were reused in a GWT (Java) codebase later.
+  - Driven the adoption of modern front-end stack. The main accomplishment was a complete migration to TypeScript. TypeScript improved the developer experience dramatically. We also made use of TSLint, Prettier and Jest to improve the quality of our code.
+  - Implemented a CI/CD pipeline for Ataccama ONE. This pipeline allowed multiple development teams to simultaneously deploy their code for testing and acceptance and sped up our iteration over product.
+  - Attracted skilled talent for the company. Speaking on meetups or mentoring newbies in code boot camp helped me grow the front-end team from 3 to 10 skilled engineers in two years.
 
 - role: Front-end Engineer
   company: Ataccama
   from: 09.2016
   to: 03.2017
-  note: I was hired as one of the first internal front-end developers. I worked on knowledge transfer and handover of the prototype from external consultants to Ataccama employees.
-
-- role: Web Developer
-  company: European Experts
-  from: 12.2015
-  to: 09.2016
-  note: I was the solo front-end developer on a complex Applicant Tracker System software. I was building the architecture of 
+  note: I was hired as one of the first internal front-end developers. I've worked on knowledge transfer and handover of the prototype from external consultants to Ataccama employees.
   highlights:
-  - Worked together with a backend developer to quickly bring a prototype into life
-  - Built an SPA with interactive user interface using React and ES6
+  - Encouraged active knowledge transfer from the team of external developers to Ataccama employees. This allowed us to develop the product using a lot of original codebase well into 2020.
+  - Mentored less experienced colleagues. React and SPAs were new technologies for the company, so I got to share my experience with my peers.
 
-- role: Front-end Developer
-  company: ViewWorld
+- role: JavaScript Developer
+  company: European Experts
   from: 06.2015
-  to: 10.2016
-  note: I was supporting and adding minor features into an old, but massive Backbone.js codebase. 
+  to: 09.2016
+  note: I was the primary JavaScript/front-end developer working on a new Applicant Tracking System in React and supporting a legacy mobile data collection app in Backbone.
+  highlights:
+  - Worked in a cross-functional agile team to quickly bring a prototype application to life. Ensured a handover of code and documentation to a new team that grew the prototype into a production app.
+  - Built a single-page application using React, Reflux, and React-Router. Modern front-end stack allowed us to implement complex workflows and dynamic UI.
+  - Added minor features and patched bugs in a massive Backbone codebase. This helped our users - NGOs and non-profits - carry on with their work in less fortunate parts of the world.
 
 - role: Web Developer
   company: Fairpeople
   from: 10.2014
   to: 12.2015
-  note: I've worked on building a e-commerce one-click website and hosting solution. I've used WordPress extensively, developing a custom theme for it and integrating it with other tools.
+  note: I have worked on a project offering website development to small businesses in Eastern Europe. I used WordPress extensively, developing a custom theme for it, and integrating it with other tools.
+  highlights:
+  - Worked alongside a web designer to implement a custom WordPress-based website. Implemented a responsive theme according to Sketch templates and a PHP plugin for order processing.
+  - Built multiple demo websites using commercially-available themes. Those demo websites were shown to prospects to help them pick the design and features for their website.
 
-- role: Freelance Web Developer
+- role: Freelance Developer
   from: 2013
   to: 2017
-  note: I've spent a lot of time working on smaller web dev jobs. An occasional website, for a friend of a friend.
+  note: I spent a lot of time working on smaller web dev jobs. An occasional website for a friend of a friend.
   highlights:
-  - Learned time-management basics
-  - Got to learn lots of skills from Linux servers to PHP and Java
+  - Learned the basics of lots of non-development skills. Learning how to manage my time and simple project management was invaluable in my professional career later.
+  - Worked with lots of various technologies. I've learned how to manage DNS and Linux servers and worked on applications written in PHP, JavaScript, and Python.
   
 languages:
 - name: English 

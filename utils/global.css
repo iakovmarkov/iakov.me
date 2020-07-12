@@ -87,7 +87,11 @@ img {
 
 @media only print {
   html {
-    zoom: 0.80; /*workaround for phantomJS2 rendering pages too large*/
+    zoom: 0.80;
+    letter-spacing: 0.5px;
+  }
+
+  p, ul, li {
   }
 
   section {

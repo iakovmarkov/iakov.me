@@ -12,6 +12,7 @@ import {
 import { Section } from "@/components/Profile/components/Section";
 import Icon from "@/components/Icon";
 import Tag from "@/components/Tag";
+import PrintOnly from "@/components/PrintOnly";
 import getDateDiff from "@/utils/getDateDiff";
 import { Resume } from "@/public/markov_iakov_resume.yml";
 
@@ -36,12 +37,8 @@ const useStyles = createUseStyles({
     color: theme.font.color.main,
   }),
   projectURL: {
-    display: "none",
     fontSize: "0.8em",
     margin: "0 8px",
-    "@media print": {
-      display: "inline",
-    },
   },
 });
 
@@ -55,7 +52,7 @@ const Profile: FunctionComponent<ProfileProps> = ({ profile, children }) => {
 
       <Section title="Experience">
         {profile.experience.map((exp) => {
-          const lengthHint = `${exp.from} - ${exp.to || "Now"}`;
+          const lengthHint = `${exp.from} - ${exp.to || "Present"}`;
           const { diffYears, diffMonths } = getDateDiff(exp.from, exp.to);
 
           const companyEl = exp.company ? (
@@ -78,6 +75,7 @@ const Profile: FunctionComponent<ProfileProps> = ({ profile, children }) => {
                     {diffMonths > 0 && `${diffMonths} month`}
                     {diffMonths ? 1 && "s " : " "}
                   </span>
+                  <PrintOnly>&nbsp; {lengthHint}</PrintOnly>
                 </ItemInfo>
               </ItemTitle>
               <ItemText>{exp.note}</ItemText>
@@ -119,13 +117,15 @@ const Profile: FunctionComponent<ProfileProps> = ({ profile, children }) => {
                 <ItemInfo>
                   {project.link && (
                     <>
-                      <a
-                        href={project.link}
-                        className={classes.projectURL}
-                        target="_blank"
-                      >
-                        {project.link}
-                      </a>
+                      <PrintOnly>
+                        <a
+                          href={project.link}
+                          className={classes.projectURL}
+                          target="_blank"
+                        >
+                          {project.link}
+                        </a>
+                      </PrintOnly>
                       <a
                         href={project.link}
                         className={classes.projectLink}
