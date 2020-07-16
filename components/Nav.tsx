@@ -2,43 +2,49 @@ import Link from "@/components/Link";
 import { createUseStyles, useTheme } from "react-jss";
 import { FunctionComponent } from "react";
 
+/**
+ * I have to call `createUseStyles` inside the render function because of a bug in React JSS:
+ * https://github.com/cssinjs/jss/issues/1320
+ */
+
 interface NavProps {
   noIndex?: boolean;
 }
 
-const useStyles = createUseStyles({
-  nav: {
-    alignItems: "start",
-    textTransform: "uppercase",
-    fontStyle: "italic",
-    fontWeight: 600,
-  },
-  list: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    listStyle: "none",
-    padding: 0,
-    margin: 0,
-  },
-  listItem: {
-    fontFamily: ({ theme }) => theme.font.family.title,
-  },
-  link: {
-    display: "block",
-    padding: ({ theme }) => `${theme.size.lg}px ${theme.size.lg * 2}px`,
-    borderBottom: ({ theme }) => `${theme.size.sm}px solid transparent`,
-    "@media only screen and (max-width: 768px)": {
-      padding: ({ theme }) => `${theme.size.md}px ${theme.size.md * 2}px`,
-    },
-
-    "&.isActive": {
-      borderBottomColor: ({ theme }) => theme.color.border,
-    },
-  },
-});
-
 const Nav: FunctionComponent<NavProps> = ({ noIndex }) => {
+  const useStyles = createUseStyles({
+    nav: {
+      alignItems: "start",
+      textTransform: "uppercase",
+      fontStyle: "italic",
+      fontWeight: 600,
+    },
+    list: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      listStyle: "none",
+      padding: 0,
+      margin: 0,
+    },
+    listItem: {
+      fontFamily: ({ theme }) => theme.font.family.title,
+    },
+    link: ({ theme }) => ({
+      display: "block",
+      padding: `${theme.size.lg}px ${theme.size.lg * 2}px`,
+      borderBottom: `${theme.size.sm}px solid transparent`,
+
+      [theme.responsive.mobile]: {
+        padding: `${theme.size.md}px ${theme.size.md * 2}px`,
+      },
+
+      "&.isActive": {
+        borderBottomColor: theme.color.border,
+      },
+    }),
+  });
+
   const theme = useTheme();
   const classes = useStyles({ theme });
 

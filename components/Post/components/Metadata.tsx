@@ -4,30 +4,10 @@ import { PostElementProps } from "@/components/Post";
 import Tag from "@/components/Tag";
 import * as r from "ramda";
 
-const useStyles = createUseStyles({
-  container: {
-    margin: ({ theme }) => `${theme.size.sm}px 0px`,
-    display: "flex",
-    alignItems: "center",
-  },
-  key: {
-    textTransform: "capitalize",
-  },
-  content: {
-    fontSize: "0.8em",
-    display: "flex",
-    alignItems: "center",
-    margin: ({ theme }) =>
-      `${theme.size.sm}px ${theme.size.md}px ${theme.size.sm}px 0`,
-    paddingRight: ({ theme }) => theme.size.md,
-    color: ({ theme }) => theme.font.color.off,
-    fontFamily: ({ theme }) => theme.font.family.title,
-    borderRight: ({ theme }) => `1px solid ${theme.color.border}`,
-    "&:last-child": {
-      borderRight: "none",
-    },
-  },
-});
+/**
+ * I have to call `createUseStyles` inside the render function because of a bug in React JSS:
+ * https://github.com/cssinjs/jss/issues/1320
+ */
 
 const KNOWN_KEYS = ["title", "date", "tags", "image", "imageAlt", "imageAttr"];
 const getOtherMeta = r.curry((keys: string[], data: object) =>
@@ -40,6 +20,47 @@ const getOtherMeta = r.curry((keys: string[], data: object) =>
 
 const Metadata: FunctionComponent<PostElementProps> = (props) => {
   const { post } = props;
+
+  const useStyles = createUseStyles({
+    container: ({ theme }) => ({
+      margin: `${theme.size.sm}px 0px`,
+      display: "flex",
+      alignItems: "center",
+
+      [theme.responsive.mobile]: {
+        display: "block",
+      },
+    }),
+    key: {
+      textTransform: "capitalize",
+    },
+    content: ({ theme }) => ({
+      fontSize: "0.8em",
+      display: "flex",
+      alignItems: "center",
+      margin: `${theme.size.sm}px ${theme.size.md}px ${theme.size.sm}px 0`,
+      paddingRight: theme.size.md,
+      color: theme.font.color.off,
+      fontFamily: theme.font.family.title,
+      borderRight: `1px solid ${theme.color.border}`,
+      whiteSpace: "nowrap",
+      wordBreak: "keep-all",
+
+      "&:last-child": {
+        borderRight: "none",
+      },
+
+      [theme.responsive.mobile]: {
+        borderRight: "none",
+        width: "100%",
+      },
+    }),
+
+    tags: {
+      flexWrap: "wrap",
+    },
+  });
+
   const theme = useTheme();
   const classes = useStyles({ theme });
   const otherMeta = getOtherMeta(KNOWN_KEYS)(post.data);
@@ -50,7 +71,7 @@ const Metadata: FunctionComponent<PostElementProps> = (props) => {
         Written at {post.data.date.toLocaleDateString()}
       </div>
       {post.data.tags && post.data.tags.length && (
-        <div className={classes.content}>
+        <div className={`${classes.content} ${classes.tags}`}>
           Tags:&nbsp;&nbsp;
           {post.data.tags.map((tag: string) => (
             <Tag key={tag}>{tag}</Tag>

@@ -2,15 +2,15 @@ import { FunctionComponent } from "react";
 import { createUseStyles, useTheme } from "react-jss";
 
 const useStyles = createUseStyles({
-  tag: {
+  tag: ({ theme }) => ({
     display: "inline-block",
-    padding: ({ theme }) => `0 ${theme.size.sm}px`,
-    margin: ({ theme }) => `-1px ${theme.size.sm}px -1px 0`,
-    border: ({ theme }) => `1px solid ${theme.color.border}`,
-    fontFamily: ({ theme }) => "Poppins, sans-serif",
+    padding: `0 ${theme.size.sm}px`,
+    margin: `1px ${theme.size.sm}px 1px 0`,
+    border: `1px solid ${theme.color.border}`,
+    fontFamily: theme.font.family.title,
     fontWeight: 400,
     fontStyle: "normal",
-  },
+  }),
 });
 
 const Metadata: FunctionComponent = ({ children }) => {

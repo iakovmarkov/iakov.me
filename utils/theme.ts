@@ -19,4 +19,7 @@ export default {
       off: "#777777",
     },
   },
+  responsive: {
+    mobile: '@media only screen and (max-width: 768px)'
+  }
 };

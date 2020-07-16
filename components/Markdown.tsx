@@ -15,8 +15,6 @@ const RENDERERS = { code: CodeBlock, listItem: ListItem };
 
 const useStyles = createUseStyles({
   content: ({ short, theme }) => ({
-    margin: `${theme.size.md}px 0`,
-
     "& > p:first-of-type::first-letter": !short && {
       float: "left",
       fontSize: "48px",
@@ -26,7 +24,7 @@ const useStyles = createUseStyles({
     },
 
     "& p": {
-      margin: `${theme.size.md}px 0 ${theme.size.sm}px`,
+      margin: `0 0 ${theme.size.md}px`,
       verticalAlign: "baseline",
     },
 

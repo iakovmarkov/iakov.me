@@ -22,10 +22,14 @@ const useStyles = createUseStyles({
     height: "32px",
     marginLeft: theme.size.lg,
   }),
-  introContainer: {
+  introContainer: ({ theme }) => ({
     display: "flex",
     flexDirection: "row",
-  },
+
+    [theme.responsive.mobile]: {
+      flexDirection: "column-reverse",
+    },
+  }),
   intro: ({ theme }) => ({
     flex: 2,
 
@@ -36,6 +40,16 @@ const useStyles = createUseStyles({
   photo: ({ theme }) => ({
     flex: 1,
     margin: `0 0 0 ${theme.size.lg}px`,
+
+    [theme.responsive.mobile]: {
+      // Trying to center my face in the pic
+      maxHeight: 200,
+      paddingTop: 50,
+      margin: `0 0 ${theme.size.lg}px 0`,
+      overflow: "hidden",
+      display: "flex",
+      alignItems: "center",
+    },
   }),
   photoLink: {
     display: "block",
@@ -55,6 +69,7 @@ export const Intro: FunctionComponent<any> = ({ children, links, title }) => {
           links.map((link: any) => (
             <a
               className={classes.titleLink}
+              key={link.href}
               href={link.href}
               title={link.title}
               target="_blank"

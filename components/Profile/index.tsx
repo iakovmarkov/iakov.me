@@ -112,7 +112,7 @@ const Profile: FunctionComponent<ProfileProps> = ({ profile, children }) => {
         {profile.projects.map((project) => {
           return (
             <Item key={project.name}>
-              <ItemTitle>
+              <ItemTitle oneline>
                 <ItemName>{project.name}</ItemName>
                 <ItemInfo>
                   {project.link && (
@@ -147,7 +147,7 @@ const Profile: FunctionComponent<ProfileProps> = ({ profile, children }) => {
         {profile.languages.map((lang) => {
           return (
             <Item key={lang.name}>
-              <ItemTitle>
+              <ItemTitle oneline>
                 <ItemName>{lang.name}</ItemName>
                 <ItemInfo>{lang.proficiency}</ItemInfo>
               </ItemTitle>
