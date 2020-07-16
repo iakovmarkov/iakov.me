@@ -15,9 +15,9 @@ Features:
 * [x] Main page with glitchy image
 * [ ] Main page glitch - customize code
 * [x] About me page 
-* [ ] Profile in YML
-* [ ] About me generated from YML
-* [ ] CV from YML
+* [x] Profile in YML
+* [x] About me generated from YML
+* [x] CV from YML
 * [x] Blog: basic structure
 * [x] Post type: blog post
 * [x] Post type: quote post
@@ -27,8 +27,7 @@ Features:
 * [x] Post content: make it look nice
 * [x] Post content: code with synthax highlight
 * [ ] Blog: pagination
-* [ ] Blog: search by tag (taxonomy)
-* [ ] Blog: all tags view
+* [ ] Blog: search by tag with autocomplete
 * [x] Contact: link to email
 * [ ] Figure out how to keep this page online after I perish
 
