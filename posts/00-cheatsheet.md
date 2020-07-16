@@ -2,8 +2,8 @@
 title: "Markdown Cheatsheet"
 date: 2017-01-07
 tags:
-  - markdown
-  - test
+  - Markdown
+  - Test
 ---
 This post is a markdown cheatsheet for myself. It's also useful for styling markdown.
 ---
