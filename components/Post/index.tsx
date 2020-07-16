@@ -14,7 +14,7 @@ const isQuotePost = r.where({
   data: r.where({ image: r.isNil }),
 });
 
-const MATTER_OPTS: GrayMatterOption<any, any> = {
+const MATTER_OPTS: GrayMatterOption<string, {}> = {
   excerpt: true,
 };
 

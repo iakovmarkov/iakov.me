@@ -37,16 +37,18 @@ const BlogPage: NextPage<{ posts: PostProps[] }> = ({ posts }) => {
   );
 };
 
+type AccType = PostProps;
+
 BlogPage.getInitialProps = async () => {
-  const context = (require as any).context("../../posts", true, /\.md$/) as any;
+  const context = (require as any).context("../../posts", true, /\.md$/);
   const keys = context.keys();
   const raw = keys.map(context);
 
   const posts = r.reduce(
-    (acc: any[], fileName: string) => {
+    (acc: AccType[], fileName: string) => {
       const index = acc.length;
       const post = {
-        raw: r.path([index, "default"])(raw),
+        raw: r.path([index, "default"])(raw) as string,
         slug: fileName
           .replace(/^.*[\\\/]/, "")
           .split(".")

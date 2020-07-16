@@ -57,7 +57,20 @@ const useStyles = createUseStyles({
   },
 });
 
-export const Intro: FunctionComponent<any> = ({ children, links, title }) => {
+interface IntroProps {
+  title: React.ReactNode;
+  links?: {
+    href: string;
+    title: string;
+    el: React.ReactNode;
+  }[];
+}
+
+export const Intro: FunctionComponent<IntroProps> = ({
+  children,
+  links,
+  title,
+}) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
@@ -66,7 +79,7 @@ export const Intro: FunctionComponent<any> = ({ children, links, title }) => {
       <div className={classes.title}>
         <h1 className={classes.titleText}>{title}</h1>
         {links &&
-          links.map((link: any) => (
+          links.map((link) => (
             <a
               className={classes.titleLink}
               key={link.href}
