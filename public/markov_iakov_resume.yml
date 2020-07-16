@@ -5,7 +5,7 @@ website: https://iakov.me/
 location: Prague, Czech republic
 dob: 29.11.1992
 photo: https://iakov.me/profile/full.jpg
-intro: I'm a software engineer with over 6 years of experience in various roles. My main focus lies in building complex front-end applications. I'm most familiar with `TypeScript`, `React`, `Express`, `Python`, and `Linux`. I'm passionate about programming, DevOps, and open-source technologies. 
+intro: I'm a software engineer with over 6 years of experience in various roles. My main focus lies in building complex front-end applications. I'm most familiar with __TypeScript__, __React__, __Express__, __Python__, and __Linux__. I'm passionate about programming, DevOps, and open-source technologies. 
 about: |
   Hello! I'm Iakov. I'm a software engineer. It's both a job and an occupation. I'm passionate about software, open-source technologies, and making computers __do stuff__.  
 
@@ -37,10 +37,13 @@ skills:
   - Jenkins
   - GitLab CI
   - Golang
+  - Linux
+  - bash
   - Prometheus
   - ELK Stack
   - AWS
-  - Linux, bash
+  - Azure
+  - Packer
 - name: Agile leadership
   note: I've been doing this for a few years, with varying degrees of success. I use my soft skills to help developers align with business goals.
   level: 0.6
