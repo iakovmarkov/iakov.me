@@ -17,10 +17,14 @@ const useStyles = createUseStyles({
     },
   },
   titleLink: ({ theme }) => ({
-    color: theme.font.color.off,
+    color: theme.color.off,
     fontSize: "32px",
     height: "32px",
     marginLeft: theme.size.lg,
+
+    "&:hover, &:active": {
+      color: theme.color.brand,
+    },
   }),
   introContainer: ({ theme }) => ({
     display: "flex",

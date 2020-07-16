@@ -15,7 +15,7 @@ const useStyles = createUseStyles({
   sectionContent: ({ theme }) => ({
     marginLeft: 2,
     paddingLeft: theme.size.lg,
-    borderLeft: `2px solid ${theme.font.color.main}`,
+    borderLeft: `2px solid ${theme.color.body}`,
   }),
 });
 

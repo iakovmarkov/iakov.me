@@ -4,6 +4,12 @@ import Glitch from "@/components/Glitch";
 import Nav from "@/components/Nav";
 import { NextPage } from "next";
 
+const LINKS = [
+  { to: "/about", el: "About" },
+  { to: "/blog", el: "Blog" },
+  { href: "mailto:markov@iakov.me", el: "Contact" },
+];
+
 const useStyles = createUseStyles({
   text: {
     lineHeight: 1.5,
@@ -23,7 +29,7 @@ const HomePage: NextPage = () => {
           To prove that you are not a robot, harm another human being or,
           through inaction, allow a human being to come to harm
         </h1>
-        <Nav noIndex />
+        <Nav links={LINKS} noHover />
       </Glitch>
     </>
   );

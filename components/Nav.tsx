@@ -7,11 +7,18 @@ import { FunctionComponent } from "react";
  * https://github.com/cssinjs/jss/issues/1320
  */
 
-interface NavProps {
-  noIndex?: boolean;
+interface LinkType {
+  to?: string;
+  href?: string;
+  el: React.ReactNode;
 }
 
-const Nav: FunctionComponent<NavProps> = ({ noIndex }) => {
+interface NavProps {
+  links: LinkType[];
+  noHover?: boolean;
+}
+
+const Nav: FunctionComponent<NavProps> = ({ links, noHover }) => {
   const useStyles = createUseStyles({
     nav: {
       alignItems: "start",
@@ -28,9 +35,9 @@ const Nav: FunctionComponent<NavProps> = ({ noIndex }) => {
       margin: 0,
     },
     listItem: {
-      fontFamily: ({ theme }) => theme.font.family.title,
+      fontFamily: ({ theme }) => theme.font.title,
     },
-    link: ({ theme }) => ({
+    link: ({ theme, noHover }) => ({
       display: "block",
       padding: `${theme.size.lg}px ${theme.size.lg * 2}px`,
       borderBottom: `${theme.size.sm}px solid transparent`,
@@ -42,39 +49,34 @@ const Nav: FunctionComponent<NavProps> = ({ noIndex }) => {
       "&.isActive": {
         borderBottomColor: theme.color.border,
       },
+
+      "&:hover, &:active": !noHover && {
+        color: theme.color.brand,
+        borderBottomColor: theme.color.brand,
+      },
     }),
   });
 
   const theme = useTheme();
-  const classes = useStyles({ theme });
-
-  const links = [
-    noIndex ? {} : { to: "/", label: "Home" },
-    { to: "/about", label: "About" },
-    { to: "/blog", label: "Blog" },
-    { href: "mailto:markov@iakov.me", label: "Contact" },
-  ];
+  const classes = useStyles({ theme, noHover });
 
   return (
     <nav className={classes.nav}>
       <ul className={classes.list}>
-        {links.map(
-          ({ to, href, label }) =>
-            label && (
-              <li key={label} className={classes.listItem}>
-                <Link to={to} href={href}>
-                  {({ isActive }) => (
-                    <a
-                      href={href || to}
-                      className={`${classes.link} ${isActive && "isActive"}`}
-                    >
-                      {label}
-                    </a>
-                  )}
-                </Link>
-              </li>
-            )
-        )}
+        {links.map(({ to, href, el }) => (
+          <li key={to || href} className={classes.listItem}>
+            <Link to={to} href={href}>
+              {({ isActive }) => (
+                <a
+                  href={href || to}
+                  className={`${classes.link} ${isActive && "isActive"}`}
+                >
+                  {el}
+                </a>
+              )}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

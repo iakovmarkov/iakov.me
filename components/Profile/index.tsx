@@ -22,10 +22,10 @@ interface ProfileProps {
 
 const useStyles = createUseStyles({
   experienceAt: ({ theme }) => ({
-    color: theme.font.color.off,
+    color: theme.color.off,
   }),
   experienceLength: ({ theme }) => ({
-    color: theme.font.color.off,
+    color: theme.color.off,
   }),
   tags: ({ theme }) => ({
     display: "inline-block",
@@ -34,7 +34,11 @@ const useStyles = createUseStyles({
   projectLink: ({ theme }) => ({
     fontSize: 20,
     lineHeight: "16px",
-    color: theme.font.color.main,
+    color: theme.color.body,
+
+    "&:hover, &:active": {
+      color: theme.color.brand,
+    },
   }),
   projectURL: {
     fontSize: "0.8em",

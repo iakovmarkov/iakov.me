@@ -31,7 +31,7 @@ const useStyles = createUseStyles({
     "& a": {
       textDecoration: "underline !important",
       "&:hover,&:active": {
-        color: "red",
+        color: theme.color.brand,
       },
     },
 
@@ -88,7 +88,7 @@ const useStyles = createUseStyles({
     },
     "& th": {
       padding: `${theme.size.sm}px ${theme.size.md}px`,
-      fontFamily: theme.font.family.title,
+      fontFamily: theme.font.title,
       textAlign: "left",
       fontWeight: 600,
     },

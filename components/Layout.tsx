@@ -1,8 +1,14 @@
 import { createUseStyles, useTheme } from "react-jss";
+import { FunctionComponent } from "react";
 import Head from "@/components/Head";
 import Nav from "@/components/Nav";
 
-import { FunctionComponent } from "react";
+const LINKS = [
+  { to: "/", el: "Home" },
+  { to: "/about", el: "About" },
+  { to: "/blog", el: "Blog" },
+  { href: "mailto:markov@iakov.me", el: "Contact" },
+];
 
 const useStyles = createUseStyles({
   container: {
@@ -38,7 +44,7 @@ const Layout: FunctionComponent = ({ children }) => {
       <Head />
       <div className={classes.navContainer}>
         <div className={classes.nav}>
-          <Nav />
+          <Nav links={LINKS} />
         </div>
       </div>
       <div className={classes.contentContainer}>{children}</div>

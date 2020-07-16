@@ -12,8 +12,8 @@ const useStyles = createUseStyles({
     height: 20,
     margin: 0,
     padding: 0,
-    fontFamily: theme.font.family.title,
-    color: theme.font.color.main,
+    fontFamily: theme.font.title,
+    color: theme.color.body,
     position: "relative",
 
     "&:after": {

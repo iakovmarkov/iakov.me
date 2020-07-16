@@ -65,7 +65,7 @@ export const ItemInfo: FunctionComponent = ({ children }) => {
       justifyContent: "center",
       alignItems: "center",
       flexDirection: "row",
-      fontFamily: theme.font.family.title,
+      fontFamily: theme.font.title,
       fontSize: "0.9em",
       "& *[title]": {
         cursor: "help",

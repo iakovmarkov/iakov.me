@@ -7,7 +7,7 @@ const useStyles = createUseStyles({
     padding: `0 ${theme.size.sm}px`,
     margin: `1px ${theme.size.sm}px 1px 0`,
     border: `1px solid ${theme.color.border}`,
-    fontFamily: theme.font.family.title,
+    fontFamily: theme.font.title,
     fontWeight: 400,
     fontStyle: "normal",
   }),

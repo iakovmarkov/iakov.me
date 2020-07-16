@@ -8,16 +8,13 @@ export default {
   color: {
     background: "#FFFFFF",
     border: "#eeeeee",
+    brand: "rgb(239, 72, 0)",
+    body: "#000000",
+    off: "#777777",
   },
   font: {
-    family: {
-      title: "Poppins, sans-serif",
-      body: "PT Serif, serif",
-    },
-    color: {
-      main: "#000000",
-      off: "#777777",
-    },
+    title: "Poppins, sans-serif",
+    body: "PT Serif, serif",
   },
   responsive: {
     mobile: '@media only screen and (max-width: 768px)'

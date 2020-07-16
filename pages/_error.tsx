@@ -10,7 +10,7 @@ const useStyles = createUseStyles({
     fontWeight: 900,
   },
   subtext: {
-    fontFamily: ({ theme }) => theme.font.family.title,
+    fontFamily: ({ theme }) => theme.font.title,
   },
 });
 

@@ -8,8 +8,8 @@ const useStyles = createUseStyles({
   attr: {
     fontSize: "0.8em",
     margin: ({ theme }) => `0 0 ${theme.size.sm}px`,
-    color: ({ theme }) => theme.font.color.off,
-    fontFamily: ({ theme }) => theme.font.family.title,
+    color: ({ theme }) => theme.color.off,
+    fontFamily: ({ theme }) => theme.font.title,
     "& > *": {
       margin: 0,
     },

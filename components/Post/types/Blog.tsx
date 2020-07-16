@@ -10,13 +10,13 @@ import { PostElementProps } from "@/components/Post";
 
 const useStyles = createUseStyles({
   readMoreLink: {
-    fontFamily: ({ theme }) => theme.font.family.title,
+    fontFamily: ({ theme }) => theme.font.title,
     fontSize: "0.8em",
     display: "inline-block",
     margin: ({ theme }) => `${theme.size.sm}px 0`,
     padding: ({ theme }) => `${theme.size.sm}px ${theme.size.md}px`,
-    border: ({ theme }) => `2px solid ${theme.font.color.main}`,
-    color: ({ theme }) => theme.font.color.main,
+    border: ({ theme }) => `2px solid ${theme.color.body}`,
+    color: ({ theme }) => theme.color.body,
     background: ({ theme }) => theme.color.background,
     "&:hover,&:active": {
       color: "#FFFFFF",

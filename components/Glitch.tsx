@@ -37,7 +37,7 @@ const useStyles = createUseStyles({
     },
 
     color: "rgb(232, 230, 227)",
-    textShadow: "0 0 10px rgb(202, 47, 1)",
+    textShadow: ({ theme }) => `0 0 10px ${theme.color.brand}`,
     textTransform: "uppercase",
   },
   glitchContainer: {},
