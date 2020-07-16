@@ -4,6 +4,7 @@ export default {
     md: 8,
     lg: 18,
     width: 760,
+    font: 16,
   },
   color: {
     background: "#FFFFFF",

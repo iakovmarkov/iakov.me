@@ -11,28 +11,54 @@ const LINKS = [
 ];
 
 const useStyles = createUseStyles({
-  container: {
+  container: ({ theme }) => ({
     display: "flex",
     minHeight: "100%",
     flexDirection: "column",
     alignItems: "center",
-    background: ({ theme }) => theme.color.background,
-  },
+    background: theme.color.background,
+  }),
   navContainer: {
     width: "100%",
     display: "flex",
     justifyContent: "center",
   },
-  nav: {
+  nav: ({ theme }) => ({
     width: "100%",
-    maxWidth: ({ theme }) => theme.size.width,
-    borderBottom: ({ theme }) => `1px solid ${theme.color.border}`,
-  },
-  contentContainer: {
+    maxWidth: theme.size.width,
+    borderBottom: `1px solid ${theme.color.border}`,
+  }),
+  contentContainer: ({ theme }) => ({
     width: "100%",
-    padding: ({ theme }) => `${theme.size.lg}px ${theme.size.lg}px`,
-    maxWidth: ({ theme }) => theme.size.width,
-  },
+    padding: `${theme.size.lg}px ${theme.size.lg}px`,
+    maxWidth: theme.size.width,
+    fontSize: `${theme.size.font}px`,
+
+    "& h1": {
+      fontSize: `${theme.size.font * 1.5}px`,
+      fontFamily: theme.font.title,
+    },
+    "& h2": {
+      fontSize: `${theme.size.font * 1.4}px`,
+      fontFamily: theme.font.title,
+    },
+    "& h3": {
+      fontSize: `${theme.size.font * 1.3}px`,
+      fontFamily: theme.font.title,
+    },
+    "& h4": {
+      fontSize: `${theme.size.font * 1.2}px`,
+      fontFamily: theme.font.title,
+    },
+    "& h5": {
+      fontSize: `${theme.size.font * 1.1}px`,
+      fontFamily: theme.font.title,
+    },
+    "& h6": {
+      fontSize: `${theme.size.font * 1}px`,
+      fontFamily: theme.font.title,
+    },
+  }),
 });
 
 const Layout: FunctionComponent = ({ children }) => {

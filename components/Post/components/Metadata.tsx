@@ -19,11 +19,13 @@ const getOtherMeta = r.curry((keys: string[], data: object) =>
 );
 
 const Metadata: FunctionComponent<PostElementProps> = (props) => {
-  const { post } = props;
+  const { post, short } = props;
 
   const useStyles = createUseStyles({
-    container: ({ theme }) => ({
-      margin: `${theme.size.sm}px 0px`,
+    container: ({ theme, short }) => ({
+      borderTop: !short && `1px solid ${theme.color.border}`,
+      margin: short ? `${theme.size.sm}px 0px` : `${theme.size.lg}px 0px`,
+      padding: !short && `${theme.size.lg}px 0px`,
       display: "flex",
       alignItems: "center",
 
@@ -62,7 +64,7 @@ const Metadata: FunctionComponent<PostElementProps> = (props) => {
   });
 
   const theme = useTheme();
-  const classes = useStyles({ theme });
+  const classes = useStyles({ theme, short });
   const otherMeta = getOtherMeta(KNOWN_KEYS)(post.data);
 
   return (

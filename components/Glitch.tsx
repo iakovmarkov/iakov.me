@@ -46,6 +46,7 @@ const useStyles = createUseStyles({
     maxWidth: 550,
     width: "100%",
     padding: ({ theme }) => `${theme.size.lg}px`,
+    fontFamily: ({ theme }) => theme.font.title,
   },
   element: ({ flip }) => ({
     backgroundImage: "url(/home/zizkov.jpg)",
