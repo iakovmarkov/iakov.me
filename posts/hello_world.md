@@ -1,7 +1,7 @@
 ---
 title: "Hello World"
 date: 2020-07-01
-image: /blog/stanislav-kondratiev-9_09JajkRaA-unsplash.jpg
+image: /img/stanislav-kondratiev-9_09JajkRaA-unsplash.jpg
 imageAlt: Aerial view of Ekatrinburg. I was born somewhere here.
 imageAttr: Photo by [Stanislav Kondratiev](https://unsplash.com/@technobulka?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
 mood: excited
