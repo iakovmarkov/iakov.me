@@ -2,6 +2,7 @@ import { createUseStyles, useTheme } from "react-jss";
 import { NextPage } from "next";
 import Layout from "@/components/Layout";
 import Post from "@/components/Post";
+import matter from "@/utils/matter";
 
 const useStyles = createUseStyles({
   container: {
@@ -13,11 +14,12 @@ const useStyles = createUseStyles({
 const BlogPage: NextPage<{ raw: string }> = ({ raw }) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
+  const post = matter(raw);
 
   return (
     <Layout>
       <div className={classes.container}>
-        <Post slug={"/"} raw={raw} />
+        <Post slug={"/"} post={post} />
       </div>
     </Layout>
   );

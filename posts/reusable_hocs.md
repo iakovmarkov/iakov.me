@@ -17,7 +17,7 @@ This is a third post about functional programming in React. In the previous post
 
 I believe that the main benefit of FP approach is reusability. If your business logic is separated from your render code, the later can be reused in different context or even application, given the interface for the render function is flexible enough. But the business logic itself can also be implemented as a higher-order function. You can take any piece of code that is present in multiple places in your project, give it a name and interface, and use functional composition to attach it to your components.
 
-If you are not familiar with the concept of higher-order components, I recommend taking a look at [Higher-Order Components in React](/blog/04-react_hocs) first.
+If you are not familiar with the concept of higher-order components, I recommend taking a look at [Higher-Order Components in React](/blog/react_hocs) first.
 
 ## Practical example
 

@@ -17,7 +17,7 @@ Most React developers are using object-oriented approach to React components. Th
 
 A small, but nevertheless cool thing about separating view code from business logic is that you, as a developer, can replace React with any other similar view library. The practical application of this is very limited, but I'm going to show you how it's done in the very end of this blog post.
 
-If you're not familiar with functional programming, I'd recommend taking a look at [Funcitonal Programming in React](/blog/03_functional-react). 
+If you're not familiar with functional programming, I'd recommend taking a look at [Funcitonal Programming in React](/blog/functional-react). 
 
 ## Functional composition
 
@@ -402,7 +402,7 @@ As I've said in the beginning, the practical application of this is very limited
 
 When we have applied this for the first time in Ataccama, our junior developers and newcomers were really confused with the concept. However, after a few weeks of working with the project that uses higher-order components a lot, they've learned how to quickly compose HOCs to get the desired behavior. Separating the business logic from the render code allowed us to have a standard UI library that is shared across different web applications.
 
-I hope reading this has been beneficial to you. Even if you won't rewrite your code into functional components immediately, you can apply certain ideas to other areas of programming. If you are interested in learning more about functional programming in React, check out [Reusable Higher-Order Components](/blog/05-reusable_hocs).
+I hope reading this has been beneficial to you. Even if you won't rewrite your code into functional components immediately, you can apply certain ideas to other areas of programming. If you are interested in learning more about functional programming in React, check out [Reusable Higher-Order Components](/blog/reusable_hocs).
 
 ## Useful links
 

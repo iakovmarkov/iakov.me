@@ -123,7 +123,7 @@ The `connect` decorator takes two parameters - both of them are functions that a
 
 I think by now you get the idea. I believe that treating functions as first-class citizens in language is the main idea of functional programming. Many JavaScript developers have applied it without really knowing that they're using a functional programming technique.
 
-This is not the only aspect of functional programming though. There are many other good ideas like composition, immutability, pure functions and the like. Even though JavaScript is a multi-paradigm language, and it doesn't force you into doing things in a strictly FP way, it's very useful to know more about the FP techniques you can use in JS and React. You can read about one of them in [Higher-Order Components in React](/blog/04-react_hocs).
+This is not the only aspect of functional programming though. There are many other good ideas like composition, immutability, pure functions and the like. Even though JavaScript is a multi-paradigm language, and it doesn't force you into doing things in a strictly FP way, it's very useful to know more about the FP techniques you can use in JS and React. You can read about one of them in [Higher-Order Components in React](/blog/react_hocs).
 
 ## Useful links
 

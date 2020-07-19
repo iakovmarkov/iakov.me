@@ -1,4 +1,4 @@
-import matter, { GrayMatterOption, GrayMatterFile } from "gray-matter";
+import { GrayMatterFile } from "gray-matter";
 import BlogPost from "./types/Blog";
 import QuotePost from "./types/Quote";
 import MediaPost from "./types/Media";
@@ -14,13 +14,9 @@ const isQuotePost = r.where({
   data: r.where({ image: r.isNil }),
 });
 
-const MATTER_OPTS: GrayMatterOption<string, {}> = {
-  excerpt: true,
-};
-
 export interface PostProps {
   slug: string;
-  raw: string;
+  post: GrayMatterFile<string>;
   short?: boolean;
 }
 
@@ -32,9 +28,7 @@ export interface PostElementProps extends Partial<PostProps> {
  * This component renders a blog post, depending on it's content
  * Styles and markup are defined in the *Post components
  */
-const Post: FunctionComponent<PostProps> = ({ raw, ...props }) => {
-  const post = matter(raw, MATTER_OPTS);
-
+const Post: FunctionComponent<PostProps> = ({ post, ...props }) => {
   const element = r.cond([
     [isMediaPost, r.always(<MediaPost post={post} {...props} />)],
     [isQuotePost, r.always(<QuotePost post={post} {...props} />)],

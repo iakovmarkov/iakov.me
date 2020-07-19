@@ -49,10 +49,10 @@ declare module "@/public/markov_iakov_resume.yml" {
   interface Experience {
     role: string;
     company?: string;
-    from: number;
+    from: string;
     note: string;
     highlights?: string[];
-    to?: number;
+    to?: string;
   }
 
   interface Project {

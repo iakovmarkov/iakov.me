@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import { createUseStyles, useTheme } from "react-jss";
 import { PostElementProps } from "@/components/Post";
+import { formatDate } from "@/utils/date";
 import Tag from "@/components/Tag";
 import * as r from "ramda";
 
@@ -70,7 +71,7 @@ const Metadata: FunctionComponent<PostElementProps> = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.content}>
-        Written at {post.data.date.toLocaleDateString()}
+        Written at {formatDate(post.data.date)}
       </div>
       {post.data.tags && post.data.tags.length && (
         <div className={`${classes.content} ${classes.tags}`}>

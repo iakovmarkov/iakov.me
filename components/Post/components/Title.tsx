@@ -2,6 +2,7 @@ import { FunctionComponent } from "react";
 import { createUseStyles, useTheme } from "react-jss";
 import Link from "@/components/Link";
 import { PostElementProps } from "@/components/Post";
+import { formatDate } from "@/utils/date";
 
 const useStyles = createUseStyles({
   container: ({ theme, short }) => ({
@@ -43,9 +44,7 @@ const Title: FunctionComponent<PostElementProps> = (props) => {
     <div className={classes.container}>
       <h1 className={classes.title}>{post.data.title}</h1>
       {!short && (
-        <div className={classes.date}>
-          {post.data.date.toLocaleDateString()}
-        </div>
+        <div className={classes.date}>{formatDate(post.data.date)}</div>
       )}
     </div>
   );

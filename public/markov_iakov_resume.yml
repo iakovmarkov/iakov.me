@@ -79,7 +79,7 @@ projects:
 experience:
 - role: Cloud Team Lead
   company: Ataccama
-  from: 03.2019
+  from: 2019-03
   note: I moved to become the direct manager of a team of 5 people. My primary goal was to improve the Ataccama Platform-as-a-Service and the general Cloud platform capabilities of our software.
   highlights:
   - Directly managed a team of 5 Systems Engineers. I facilitated a SCRUM-like workflow, driven cooperation with Support and the Professional Services team, and created a long-term vision for the company's cloud competence.
@@ -89,8 +89,8 @@ experience:
 
 - role: Front-end Team Lead
   company: Ataccama
-  from: 03.2017
-  to: 03.2019
+  from: 2017-03
+  to: 2019-03
   note: I've risen to the opportunity to become the leader of the Front-end team. I've been in charge of growing the front-end team, as well as maintaining a consistent technical vision.
   highlights:
   - Encouraged cooperation on codebase across separate product teams. This allowed us to reuse a lot of component code and improve UI consistency. Some components were reused in a GWT (Java) codebase later.
@@ -100,8 +100,8 @@ experience:
 
 - role: Front-end Engineer
   company: Ataccama
-  from: 09.2016
-  to: 03.2017
+  from: 2016-09
+  to: 2017-03
   note: I was hired as one of the first internal front-end developers. I've worked on knowledge transfer and handover of the prototype from external consultants to Ataccama employees.
   highlights:
   - Encouraged active knowledge transfer from the team of external developers to Ataccama employees. This allowed us to develop the product using a lot of original codebase well into 2020.
@@ -109,8 +109,8 @@ experience:
 
 - role: JavaScript Developer
   company: European Experts
-  from: 06.2015
-  to: 09.2016
+  from: 2015-06
+  to: 2016-09
   note: I was the primary JavaScript/front-end developer working on a new Applicant Tracking System in React and supporting a legacy mobile data collection app in Backbone.
   highlights:
   - Worked in a cross-functional agile team to quickly bring a prototype application to life. Ensured a handover of code and documentation to a new team that grew the prototype into a production app.
@@ -119,8 +119,8 @@ experience:
 
 - role: Web Developer
   company: Fairpeople
-  from: 10.2014
-  to: 12.2015
+  from: 2014-10
+  to: 2015-12
   note: I have worked on a project offering website development to small businesses in Eastern Europe. I used WordPress extensively, developing a custom theme for it, and integrating it with other tools.
   highlights:
   - Worked alongside a web designer to implement a custom WordPress-based website. Implemented a responsive theme according to Sketch templates and a PHP plugin for order processing.

@@ -25,6 +25,7 @@
     "gray-matter": "^4.0.2",
     "husky": "^4.2.1",
     "js-yaml-loader": "^1.2.2",
+    "left-pad": "^1.3.0",
     "next": "9.4.4",
     "next-fonts": "^1.3.0",
     "normalize.css": "^8.0.1",

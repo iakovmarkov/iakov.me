@@ -3,6 +3,7 @@ import * as r from "ramda";
 import { NextPage } from "next";
 import Layout from "@/components/Layout";
 import Post, { PostProps } from "@/components/Post";
+import matter from "@/utils/matter";
 
 const useStyles = createUseStyles({
   list: {
@@ -27,9 +28,9 @@ const BlogPage: NextPage<{ posts: PostProps[] }> = ({ posts }) => {
   return (
     <Layout>
       <ul className={classes.list}>
-        {posts.map(({ slug, raw }) => (
+        {posts.map(({ slug, post }) => (
           <li className={classes.listItem} key={slug}>
-            <Post slug={slug} raw={raw} short />
+            <Post slug={slug} post={post} short />
           </li>
         ))}
       </ul>
@@ -37,18 +38,20 @@ const BlogPage: NextPage<{ posts: PostProps[] }> = ({ posts }) => {
   );
 };
 
-type AccType = PostProps;
-
 BlogPage.getInitialProps = async () => {
   const context = (require as any).context("../../posts", true, /\.md$/);
   const keys = context.keys();
   const raw = keys.map(context);
 
-  const posts = r.reduce(
-    (acc: AccType[], fileName: string) => {
+  const posts: PostProps[] = r.pipe(
+    r.reduce((acc: PostProps[], fileName: string) => {
       const index = acc.length;
-      const post = {
-        raw: r.path([index, "default"])(raw) as string,
+
+      const rawString = r.path([index, "default"])(raw) as string;
+      const post = matter(rawString);
+
+      const newPost = {
+        post,
         slug: fileName
           .replace(/^.*[\\\/]/, "")
           .split(".")
@@ -56,11 +59,13 @@ BlogPage.getInitialProps = async () => {
           .join("."),
       };
 
-      return [post, ...acc];
-    },
-    [],
-    keys
-  );
+      return [newPost, ...acc];
+    }, []),
+    r.sort(
+      (a: PostProps, b: PostProps) =>
+        b.post.data.date.getTime() - a.post.data.date.getTime()
+    )
+  )(keys);
 
   return {
     posts,

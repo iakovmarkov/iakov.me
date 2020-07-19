@@ -13,7 +13,7 @@ import { Section } from "@/components/Profile/components/Section";
 import Icon from "@/components/Icon";
 import Tag from "@/components/Tag";
 import PrintOnly from "@/components/PrintOnly";
-import getDateDiff from "@/utils/getDateDiff";
+import { getDateDiff, formatDate } from "@/utils/date";
 import { Resume } from "@/public/markov_iakov_resume.yml";
 
 interface ProfileProps {
@@ -56,7 +56,9 @@ const Profile: FunctionComponent<ProfileProps> = ({ profile, children }) => {
 
       <Section title="Experience">
         {profile.experience.map((exp) => {
-          const lengthHint = `${exp.from} - ${exp.to || "Present"}`;
+          const lengthHint = `${formatDate(exp.from)} - ${
+            exp.to ? formatDate(exp.to) : "Present"
+          }`;
           const { diffYears, diffMonths } = getDateDiff(exp.from, exp.to);
 
           const companyEl = exp.company ? (
