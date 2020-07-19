@@ -50,14 +50,14 @@ export const formatDate = (value: string | number | Date) => {
     }
   }
 
-  const res = [parsedValue.year]
+  const res: string[] = [parsedValue.year.toString()]
 
   if (parsedValue.month !== undefined) {
-    res.push(pad(parsedValue.month.toString(), 2, '0'))
+    res.push(pad(parsedValue.month, 2, '0'))
   }
 
   if (parsedValue.day !== undefined) {
-    res.push(pad(parsedValue.day.toString(), 2, '0'))
+    res.push(pad(parsedValue.day, 2, '0'))
   }
 
   return res.reverse().join('.')
