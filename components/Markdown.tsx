@@ -24,7 +24,7 @@ const useStyles = createUseStyles({
     },
 
     "& p": {
-      margin: `0 0 ${theme.size.md}px`,
+      margin: `${theme.size.md}px 0 ${theme.size.md}px`,
       verticalAlign: "baseline",
     },
 
@@ -42,7 +42,7 @@ const useStyles = createUseStyles({
     },
 
     "& h1, & h2, & h3, & h4, & h5, & h6": {
-      margin: `${theme.size.lg}px 0 ${theme.size.sm}px`,
+      margin: `${theme.size.lg}px 0 ${theme.size.md}px`,
     },
 
     "& hr": {

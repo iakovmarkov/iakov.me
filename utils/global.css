@@ -68,6 +68,10 @@ body, html, #__next {
   height: 100%;
 }
 
+code, kbd, samp {
+  font-family: Inconsolata, Monaco, Consolas, 'Courier New', Courier, monospace;
+}
+
 a {
   text-decoration: none;
   color: inherit;
