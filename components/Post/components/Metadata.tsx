@@ -70,9 +70,7 @@ const Metadata: FunctionComponent<PostElementProps> = (props) => {
 
   return (
     <div className={classes.container}>
-      <div className={classes.content}>
-        Written at {formatDate(post.data.date)}
-      </div>
+      <div className={classes.content}>{formatDate(post.data.date)}</div>
       {post.data.tags && post.data.tags.length && (
         <div className={`${classes.content} ${classes.tags}`}>
           Tags:&nbsp;&nbsp;
