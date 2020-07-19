@@ -1,6 +1,5 @@
 import { createUseStyles, useTheme } from "react-jss";
 import { FunctionComponent } from "react";
-import Head from "@/components/Head";
 import Nav from "@/components/Nav";
 
 const LINKS = [
@@ -67,7 +66,6 @@ const Layout: FunctionComponent = ({ children }) => {
 
   return (
     <div className={classes.container}>
-      <Head />
       <div className={classes.navContainer}>
         <div className={classes.nav}>
           <Nav links={LINKS} />

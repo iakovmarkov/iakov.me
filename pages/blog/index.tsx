@@ -4,6 +4,7 @@ import { NextPage } from "next";
 import Layout from "@/components/Layout";
 import Post, { PostProps } from "@/components/Post";
 import matter from "@/utils/matter";
+import Head from "@/components/Head";
 
 const useStyles = createUseStyles({
   list: {
@@ -27,6 +28,7 @@ const BlogPage: NextPage<{ posts: PostProps[] }> = ({ posts }) => {
 
   return (
     <Layout>
+      <Head title="Blog" />
       <ul className={classes.list}>
         {posts.map(({ slug, post }) => (
           <li className={classes.listItem} key={slug}>

@@ -4,6 +4,7 @@ import Profile from "@/components/Profile";
 import Intro from "@/components/Profile/components/Intro";
 import Icon from "@/components/Icon";
 import resume from "@/public/markov_iakov_resume.yml";
+import Head from "@/components/Head";
 import { NextPage } from "next";
 
 const links = [
@@ -22,6 +23,7 @@ const links = [
 const AboutPage: NextPage = () => {
   return (
     <Layout>
+      <Head title="About" />
       <Profile profile={resume}>
         <Intro title="About me" links={links}>
           <Markdown source={resume.about} />

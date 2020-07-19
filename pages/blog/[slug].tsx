@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import Layout from "@/components/Layout";
 import Post from "@/components/Post";
 import matter from "@/utils/matter";
+import Head from "@/components/Head";
 
 const useStyles = createUseStyles({
   container: {
@@ -18,6 +19,7 @@ const BlogPage: NextPage<{ raw: string }> = ({ raw }) => {
 
   return (
     <Layout>
+      <Head title={post.data.title} description={post.excerpt} />
       <div className={classes.container}>
         <Post slug={"/"} post={post} />
       </div>
