@@ -14,6 +14,16 @@ interface HeadProps {
 const getTitle = (pageTitle?: string) =>
   pageTitle ? `${pageTitle} - ${TITLE}` : TITLE;
 
+const PreloadFont = ({ href }: any) => (
+  <link
+    href={href}
+    rel="preload"
+    as="font"
+    type="font/ttf"
+    {...{ crossorigin: true }}
+  />
+)
+
 const Head: FunctionComponent<HeadProps> = ({
   title,
   description = DESCRIPTION,
@@ -31,6 +41,15 @@ const Head: FunctionComponent<HeadProps> = ({
     <meta {...{ itemprop: "name" }} content={getTitle(title)} />
     <meta {...{ itemprop: "description" }} content={description} />
     <meta {...{ itemprop: "image" }} content={IMAGE} />
+
+    <PreloadFont href="/fonts/PTSerif-Regular.ttf" />
+    <PreloadFont href="/fonts/PTSerif-Bold.ttf" />
+    <PreloadFont href="/fonts/PTSerif-RegularItalic.ttf" />
+    <PreloadFont href="/fonts/PTSerif-BoldItalic.ttf" />
+    <PreloadFont href="/fonts/Poppins-Regular.ttf" />
+    <PreloadFont href="/fonts/Poppins-SemiBold.ttf" />
+    <PreloadFont href="/fonts/Poppins-SemiBoldItalic.ttf" />
+    <PreloadFont href="/fonts/Poppins-BlackItalic.ttf" />
   </NextHead>
 );
 
