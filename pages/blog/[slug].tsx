@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import Layout from "@/components/Layout";
 import Post from "@/components/Post";
 import matter from "@/utils/matter";
+import getSlug from "@/utils/getSlug";
 import Head from "@/components/Head";
 
 const useStyles = createUseStyles({
@@ -12,7 +13,10 @@ const useStyles = createUseStyles({
   },
 });
 
-const BlogPage: NextPage<{ raw: string }> = ({ raw }) => {
+const BlogPage: NextPage<{ raw?: string }> = ({ raw }) => {
+  if (!raw) {
+    return null;
+  }
   const theme = useTheme();
   const classes = useStyles({ theme });
   const post = matter(raw);
@@ -27,15 +31,29 @@ const BlogPage: NextPage<{ raw: string }> = ({ raw }) => {
   );
 };
 
-BlogPage.getInitialProps = async (context) => {
-  const { slug } = context.query;
+export const getStaticProps = async (context: any) => {
+  const { slug } = context.params;
 
   const content = await import(`../../posts/${slug}.md`);
   const raw = content.default;
 
   return {
-    raw,
+    props: { raw },
   };
 };
+
+export async function getStaticPaths() {
+  const context = (require as any).context("../../posts", true, /\.md$/);
+  const keys = context.keys();
+
+  const paths = keys.map((filename: string) => ({
+    params: { slug: getSlug(filename) },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
 
 export default BlogPage;

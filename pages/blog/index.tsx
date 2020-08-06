@@ -2,9 +2,15 @@ import { createUseStyles, useTheme } from "react-jss";
 import * as r from "ramda";
 import { NextPage } from "next";
 import Layout from "@/components/Layout";
-import Post, { PostProps } from "@/components/Post";
+import Post from "@/components/Post";
 import matter from "@/utils/matter";
+import getSlug from "@/utils/getSlug";
 import Head from "@/components/Head";
+
+interface RawPost {
+  rawPost: string;
+  slug: string;
+}
 
 const useStyles = createUseStyles({
   list: {
@@ -22,9 +28,17 @@ const useStyles = createUseStyles({
   },
 });
 
-const BlogPage: NextPage<{ posts: PostProps[] }> = ({ posts }) => {
+const BlogPage: NextPage<{ rawPosts: RawPost[] }> = ({ rawPosts }) => {
   const theme = useTheme();
   const classes = useStyles({ theme });
+
+  const posts = r.pipe(
+    r.map(({ rawPost, ...rest }: RawPost) => ({
+      ...rest,
+      post: matter(rawPost),
+    })),
+    r.sort((a, b) => b.post.data.date.getTime() - a.post.data.date.getTime())
+  )(rawPosts);
 
   return (
     <Layout>
@@ -40,37 +54,23 @@ const BlogPage: NextPage<{ posts: PostProps[] }> = ({ posts }) => {
   );
 };
 
-BlogPage.getInitialProps = async () => {
+export const getStaticProps = async () => {
   const context = (require as any).context("../../posts", true, /\.md$/);
   const keys = context.keys();
-  const raw = keys.map(context);
 
-  const posts: PostProps[] = r.pipe(
-    r.reduce((acc: PostProps[], fileName: string) => {
-      const index = acc.length;
+  const rawPosts: RawPost[] = r.reduce((acc: RawPost[], filename: string) => {
+    const rawPost = context(filename).default as string;
 
-      const rawString = r.path([index, "default"])(raw) as string;
-      const post = matter(rawString);
+    const newPost = {
+      rawPost,
+      slug: getSlug(filename),
+    };
 
-      const newPost = {
-        post,
-        slug: fileName
-          .replace(/^.*[\\\/]/, "")
-          .split(".")
-          .slice(0, -1)
-          .join("."),
-      };
-
-      return [newPost, ...acc];
-    }, []),
-    r.sort(
-      (a: PostProps, b: PostProps) =>
-        b.post.data.date.getTime() - a.post.data.date.getTime()
-    )
-  )(keys);
+    return [newPost, ...acc];
+  }, [])(keys);
 
   return {
-    posts,
+    props: { rawPosts },
   };
 };
 
