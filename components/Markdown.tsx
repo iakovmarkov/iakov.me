@@ -14,15 +14,7 @@ interface MarkdownProps
 const RENDERERS = { code: CodeBlock, listItem: ListItem };
 
 const useStyles = createUseStyles({
-  content: ({ short, theme }) => ({
-    "& > p:first-of-type::first-letter": !short && {
-      float: "left",
-      fontSize: "48px",
-      lineHeight: "30px",
-      padding: `${theme.size.md}px ${theme.size.sm}px 0 0px`,
-      verticalAlign: "baseline",
-    },
-
+  content: ({ theme }) => ({
     "& p": {
       margin: `${theme.size.md}px 0 ${theme.size.md}px`,
       verticalAlign: "baseline",

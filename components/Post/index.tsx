@@ -1,6 +1,6 @@
 import { GrayMatterFile } from "gray-matter";
 import BlogPost from "./types/Blog";
-import QuotePost from "./types/Quote";
+import TitlePost from "./types/Title";
 import MediaPost from "./types/Media";
 import * as r from "ramda";
 import { FunctionComponent } from "react";
@@ -9,7 +9,7 @@ const isMediaPost = r.where({
   content: r.isEmpty,
   data: r.where({ image: r.is(String) }),
 });
-const isQuotePost = r.where({
+const isTitlePost = r.where({
   content: r.isEmpty,
   data: r.where({ image: r.isNil }),
 });
@@ -31,7 +31,7 @@ export interface PostElementProps extends Partial<PostProps> {
 const Post: FunctionComponent<PostProps> = ({ post, ...props }) => {
   const element = r.cond([
     [isMediaPost, r.always(<MediaPost post={post} {...props} />)],
-    [isQuotePost, r.always(<QuotePost post={post} {...props} />)],
+    [isTitlePost, r.always(<TitlePost post={post} {...props} />)],
     [r.T, r.always(<BlogPost post={post} {...props} />)],
   ])(post);
 

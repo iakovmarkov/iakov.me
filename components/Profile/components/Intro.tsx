@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import { createUseStyles, useTheme } from "react-jss";
+import getIndentStyle from "@/utils/getIndentStyle";
 
 const useStyles = createUseStyles({
   title: ({ theme }) => ({
@@ -34,13 +35,15 @@ const useStyles = createUseStyles({
       flexDirection: "column-reverse",
     },
   }),
-  intro: ({ theme }) => ({
+  intro: {
     flex: 2,
 
     "& p": {
-      margin: `0 0 ${theme.size.md}px`,
+      margin: ({ theme }) => `0 0 ${theme.size.md}px`,
     },
-  }),
+
+    "& p:first-of-type::first-letter": getIndentStyle(),
+  },
   photo: ({ theme }) => ({
     flex: 1,
     margin: `0 0 0 ${theme.size.lg}px`,

@@ -7,6 +7,7 @@ import Image from "@/components/Post/components/Image";
 import Metadata from "@/components/Post/components/Metadata";
 import Markdown from "@/components/Markdown";
 import { PostElementProps } from "@/components/Post";
+import getIndentStyle from "@/utils/getIndentStyle";
 
 const useStyles = createUseStyles({
   readMoreLink: {
@@ -22,6 +23,9 @@ const useStyles = createUseStyles({
       color: "#FFFFFF",
       background: "#000000",
     },
+  },
+  postBody: {
+    "& p:first-of-type::first-letter": getIndentStyle(),
   },
 });
 
@@ -43,7 +47,9 @@ const Post: FunctionComponent<PostElementProps> = (props) => {
           </Link>
         </>
       ) : (
-        <Markdown>{removeExcerpt(post.content)}</Markdown>
+        <div className={classes.postBody}>
+          <Markdown>{removeExcerpt(post.content)}</Markdown>
+        </div>
       )}
       <Metadata {...props} />
     </>

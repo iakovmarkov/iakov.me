@@ -3,6 +3,12 @@ import { createUseStyles, useTheme } from "react-jss";
 import Link from "@/components/Link";
 import { PostElementProps } from "@/components/Post";
 import { formatDate } from "@/utils/date";
+import * as r from "ramda";
+
+interface TitleProps extends PostElementProps {
+  href?: string;
+  target?: string;
+}
 
 const useStyles = createUseStyles({
   container: ({ theme, short }) => ({
@@ -17,6 +23,7 @@ const useStyles = createUseStyles({
     },
   }),
   title: {
+    flex: 1,
     fontSize: 24,
     margin: ({ theme }) => `${theme.size.sm}px 0px`,
   },
@@ -34,11 +41,10 @@ const useStyles = createUseStyles({
   }),
 });
 
-const Title: FunctionComponent<PostElementProps> = (props) => {
+const Title: FunctionComponent<TitleProps> = (props) => {
   const { slug, post, short } = props;
   const theme = useTheme();
   const classes = useStyles({ theme, short });
-  const href = `/blog/${slug}`;
 
   const titleEl = (
     <div className={classes.container}>
@@ -50,11 +56,17 @@ const Title: FunctionComponent<PostElementProps> = (props) => {
   );
 
   if (short) {
-    return (
-      <Link to="/blog/[slug]" as={href}>
-        {titleEl}
-      </Link>
-    );
+    // If a `href` prop is supplied, use it instead of link
+    // Otherwise fall back to linking to post
+    const linkProps = r.cond([
+      [
+        r.where({ href: r.is(String) }),
+        r.always({ href: props.href, target: props.target }),
+      ],
+      [r.T, r.always({ as: `/blog/${slug}`, to: "/blog/[slug]" })],
+    ])(props);
+
+    return <Link {...linkProps}>{titleEl}</Link>;
   }
 
   return titleEl;

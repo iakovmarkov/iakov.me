@@ -3,6 +3,7 @@ import { createUseStyles, useTheme } from "react-jss";
 import { PostElementProps } from "@/components/Post";
 import { formatDate } from "@/utils/date";
 import Tag from "@/components/Tag";
+import Markdown from "@/components/Markdown";
 import * as r from "ramda";
 
 /**
@@ -10,7 +11,15 @@ import * as r from "ramda";
  * https://github.com/cssinjs/jss/issues/1320
  */
 
-const KNOWN_KEYS = ["title", "date", "tags", "image", "imageAlt", "imageAttr"];
+const KNOWN_KEYS = [
+  "title",
+  "date",
+  "tags",
+  "image",
+  "imageAlt",
+  "imageAttr",
+  "link",
+];
 const getOtherMeta = r.curry((keys: string[], data: object) =>
   r.pipe(
     r.keys,
@@ -81,7 +90,8 @@ const Metadata: FunctionComponent<PostElementProps> = (props) => {
       )}
       {otherMeta.map(({ key, value }) => (
         <div key={key} className={classes.content}>
-          <span className={classes.key}>{key}</span>: {value}
+          <span className={classes.key}>{key}</span>:&nbsp;
+          <Markdown>{value as string}</Markdown>
         </div>
       ))}
     </div>

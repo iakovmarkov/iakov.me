@@ -22,7 +22,7 @@ const PreloadFont = ({ href }: any) => (
     type="font/ttf"
     {...{ crossorigin: true }}
   />
-)
+);
 
 const Head: FunctionComponent<HeadProps> = ({
   title,
