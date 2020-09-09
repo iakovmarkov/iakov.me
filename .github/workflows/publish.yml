@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-      - pages
 
 jobs:
   deploy:
@@ -30,7 +29,6 @@ jobs:
 
       - run: yarn install --frozen-lockfile
       - run: yarn build
-      - run: yarn build-resume
       - run: yarn export
       - name: copy file
         uses: canastro/copy-file-action@master
