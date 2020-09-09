@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild-resume": "next build",
     "build-resume": "node ./build-resume.js",
     "format": "prettier ./*.{js,ts,tsx} components/**/*.{ts,tsx} pages/**/*.{ts,tsx} --write",
     "lint": "tslint --project tsconfig.json components/**/*.{ts,tsx} pages/**/*.{ts,tsx}",
