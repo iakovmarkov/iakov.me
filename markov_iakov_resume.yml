@@ -31,7 +31,7 @@ skills:
   - Webpack
 - name: Automation and DevOps
   note: Applying my programming expertise to automate repetitve work and scale in a meaningful way.
-  level: 0.7
+  level: 0.8
   tech:
   - Docker
   - Jenkins
@@ -45,18 +45,19 @@ skills:
   - Azure
   - Packer
 - name: Agile leadership
-  note: I've been doing this for a few years, with varying degrees of success. I use my soft skills to help developers align with business goals.
-  level: 0.6
+  note: I use my soft skills and domain knowledge to align developers with business goals. I've sucessfully applied Agile methodology to manage team work as well as my own projects, and I believe it's one of the best ways to approach software work.
+  level: 0.7
 - name: Backend and API development
   note: I've done it once or twice for commercial work.
-  level: 0.5
+  level: 0.6
   tech:
   - NodeJS
   - Express.js
   - MongoDB
   - Python
+  - Django
   - GraphQL
-  - REST API
+  - REST
   - PHP
 - name: Mobile development
   note: Very basic understanding, but I'd like to learn more.
@@ -77,10 +78,11 @@ projects:
   note: I hacked together a client/server application to control cheap RGB LED lights via Bluetooth in my home, from anywhere in the world. Built using React, Node, Expo.js, and Raspberry Pi.
 
 experience:
-- role: Cloud Team Lead
+- role: Cloud Services Product Owner
   company: Ataccama
   from: 2019-03
-  note: I moved to become the direct manager of a team of 5 people. My primary goal was to improve the Ataccama Platform-as-a-Service and the general Cloud platform capabilities of our software.
+  to: 2020-10
+  note: I moved to become a PO and direct manager of a team of 5 people. My primary goal was to improve the Ataccama Platform-as-a-Service and the general Cloud platform capabilities of our software.
   highlights:
   - Directly managed a team of 5 Systems Engineers. I facilitated a SCRUM-like workflow, driven cooperation with Support and the Professional Services team, and created a long-term vision for the company's cloud competence.
   - Ensured smooth sailing of 6 PaaS customers. Implemented an on-call duty structure, as well as a team workflow, enabling quick reaction to both customer and colleague requests.
