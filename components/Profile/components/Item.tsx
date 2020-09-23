@@ -8,10 +8,10 @@ import { createUseStyles, useTheme } from "react-jss";
  */
 
 const itemStyles = createUseStyles({
-  item: ({ theme }) => ({
-    margin: `${theme.size.md}px 0 ${theme.size.lg}px`,
-    padding: `${theme.size.md}px 0 ${theme.size.md}px`,
-  }),
+  item: {
+    margin: ({ theme }) => `${theme.size.md}px 0 ${theme.size.lg}px`,
+    padding: ({ theme }) => `${theme.size.md}px 0 ${theme.size.md}px`,
+  },
 });
 
 export const Item: FunctionComponent = ({ children }) => {
@@ -21,26 +21,31 @@ export const Item: FunctionComponent = ({ children }) => {
   return <section className={classes.item}>{children}</section>;
 };
 
-export const ItemTitle: FunctionComponent<{ oneline?: boolean }> = ({
-  children,
-  oneline,
-}) => {
-  const titleStyles = createUseStyles({
-    title: ({ theme }) => ({
-      display: "flex",
-      justifyContent: "space-between",
-      borderBottom: `1px solid ${theme.color.border}`,
-      margin: `0 0 ${theme.size.sm}px 0`,
-      padding: `${theme.size.sm}px 0`,
+const titleStyles = createUseStyles({
+  title: {
+    display: "flex",
+    flexDirection: ({ isColumn }) => (isColumn ? "column" : "row"),
+    justifyContent: "space-between",
+    borderBottom: ({ theme, isColumn }) =>
+      !isColumn && `1px solid ${theme.color.border}`,
+    borderRight: ({ theme, isColumn }) =>
+      isColumn && `1px solid ${theme.color.border}`,
+    margin: ({ theme, isColumn }) =>
+      isColumn ? `0 ${theme.size.lg}px 0 0` : `0 0 ${theme.size.sm}px 0`,
+    padding: ({ theme }) => `${theme.size.sm}px 0`,
 
-      [theme.responsive.mobile]: {
-        display: oneline ? "flex" : "block",
-      },
+    "@media only print": ({ theme, oneline }) => ({
+      margin: oneline ? theme.size.sm : theme.size.lg,
     }),
-  });
+  },
+});
 
+export const ItemTitle: FunctionComponent<{
+  oneline?: boolean;
+  isColumn?: boolean;
+}> = ({ children, oneline, isColumn }) => {
   const theme = useTheme();
-  const classes = titleStyles({ theme });
+  const classes = titleStyles({ theme, oneline, isColumn });
 
   return <div className={classes.title}>{children}</div>;
 };
@@ -62,17 +67,12 @@ export const ItemInfo: FunctionComponent = ({ children }) => {
   const infoStyles = createUseStyles({
     info: ({ theme }) => ({
       display: "flex",
-      justifyContent: "center",
       alignItems: "center",
       flexDirection: "row",
       fontFamily: theme.font.title,
       fontSize: "0.9em",
       "& *[title]": {
         cursor: "help",
-      },
-
-      [theme.responsive.mobile]: {
-        justifyContent: "left",
       },
     }),
   });

@@ -1,6 +1,7 @@
 import { createUseStyles, useTheme } from "react-jss";
 import { FunctionComponent } from "react";
 import Nav from "@/components/Nav";
+import { getHeaderStyles } from "@/utils/theme";
 
 const LINKS = [
   { to: "/", el: "Home" },
@@ -33,30 +34,7 @@ const useStyles = createUseStyles({
     maxWidth: theme.size.width,
     fontSize: `${theme.size.font}px`,
 
-    "& h1": {
-      fontSize: `${theme.size.font * 1.5}px`,
-      fontFamily: theme.font.title,
-    },
-    "& h2": {
-      fontSize: `${theme.size.font * 1.4}px`,
-      fontFamily: theme.font.title,
-    },
-    "& h3": {
-      fontSize: `${theme.size.font * 1.3}px`,
-      fontFamily: theme.font.title,
-    },
-    "& h4": {
-      fontSize: `${theme.size.font * 1.2}px`,
-      fontFamily: theme.font.title,
-    },
-    "& h5": {
-      fontSize: `${theme.size.font * 1.1}px`,
-      fontFamily: theme.font.title,
-    },
-    "& h6": {
-      fontSize: `${theme.size.font * 1}px`,
-      fontFamily: theme.font.title,
-    },
+    ...getHeaderStyles(),
   }),
 });
 

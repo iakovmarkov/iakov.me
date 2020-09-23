@@ -20,7 +20,7 @@ const PreloadFont = ({ href }: any) => (
     rel="preload"
     as="font"
     type="font/ttf"
-    {...{ crossorigin: true }}
+    crossOrigin="true"
   />
 );
 
@@ -38,9 +38,9 @@ const Head: FunctionComponent<HeadProps> = ({
     <meta property="og:image" content={IMAGE} />
     <meta property="og:description" content={description} />
 
-    <meta {...{ itemprop: "name" }} content={getTitle(title)} />
-    <meta {...{ itemprop: "description" }} content={description} />
-    <meta {...{ itemprop: "image" }} content={IMAGE} />
+    <meta itemProp="name" content={getTitle(title)} />
+    <meta itemProp="description" content={description} />
+    <meta itemProp="image" content={IMAGE} />
 
     <PreloadFont href="/fonts/PTSerif-Regular.ttf" />
     <PreloadFont href="/fonts/PTSerif-Bold.ttf" />

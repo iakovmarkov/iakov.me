@@ -2,7 +2,15 @@ import Markdown from "@/components/Markdown";
 import Profile from "@/components/Profile";
 import Intro from "@/components/Profile/components/Intro";
 import resume from "@/public/markov_iakov_resume.yml";
+import { getHeaderStyles } from "@/utils/theme";
+import { createUseStyles } from "react-jss";
 import { NextPage } from "next";
+
+const useStyles = createUseStyles({
+  container: {
+    ...getHeaderStyles(),
+  },
+});
 
 const introContent = `
 ${resume.intro}
@@ -14,12 +22,20 @@ ${resume.intro}
 `;
 
 const ResumePage: NextPage = () => {
+  const classes = useStyles();
+
   return (
-    <Profile profile={resume}>
-      <Intro title={resume.name}>
-        <Markdown source={introContent} short />
-      </Intro>
-    </Profile>
+    <div className={classes.container}>
+      <link
+        href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet"
+      />
+      <Profile profile={resume}>
+        <Intro title={resume.name}>
+          <Markdown source={introContent} />
+        </Intro>
+      </Profile>
+    </div>
   );
 };
 

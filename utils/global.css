@@ -27,6 +27,7 @@
     src: local('PT Serif BoldItalic'), local('PTSerif-BoldItalic'), url(/fonts/PTSerif-BoldItalic.ttf);
     font-display: swap;
   }
+  
   @font-face {
     font-family: 'Poppins';
     font-style: normal;
@@ -36,9 +37,9 @@
   }
   @font-face {
     font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    src: local('Poppins Regular'), local('Poppins-Regular'), url(/fonts/Poppins-Regular.ttf);
+    font-style: italic;
+    font-weight: 400;
+    src: local('Poppins Italic'), local('Poppins-Italic'), url(/fonts/Poppins-Italic.ttf);
     font-display: swap;
   }
   @font-face {

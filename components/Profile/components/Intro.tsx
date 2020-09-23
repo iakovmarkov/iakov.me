@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
 import { createUseStyles, useTheme } from "react-jss";
-import getIndentStyle from "@/utils/getIndentStyle";
 
 const useStyles = createUseStyles({
   title: ({ theme }) => ({
@@ -13,14 +12,13 @@ const useStyles = createUseStyles({
     margin: 0,
     flex: 1,
     "@media only print": {
-      fontStyle: "italic",
-      fontWeight: 900,
+      fontSize: ({ theme }) => `${theme.size.font * 2}px !important`,
     },
   },
   titleLink: ({ theme }) => ({
     color: theme.color.off,
-    fontSize: "32px",
-    height: "32px",
+    fontSize: `${theme.size.font * 1.5}px !important`,
+    height: `${theme.size.font * 1.5}px !important`,
     marginLeft: theme.size.lg,
 
     "&:hover, &:active": {
@@ -41,8 +39,6 @@ const useStyles = createUseStyles({
     "& p": {
       margin: ({ theme }) => `0 0 ${theme.size.md}px`,
     },
-
-    "& p:first-of-type::first-letter": getIndentStyle(),
   },
   photo: ({ theme }) => ({
     flex: 1,

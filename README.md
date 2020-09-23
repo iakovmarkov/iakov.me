@@ -31,5 +31,5 @@ Features:
 Technicalties:
 * [x] Deployment to Zeit
 * [x] Docker image build
-* [ ] Docker deployment?
+* [ ] Docker deployment
 * [x] TypeScript, prettier, tslint

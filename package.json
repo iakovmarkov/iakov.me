@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build-resume": "node ./build-resume.js",
+    "build-resume": "node ./build-resume.js public/markov_iakov_resume_built.pdf",
     "format": "prettier ./*.{js,ts,tsx} components/**/*.{ts,tsx} pages/**/*.{ts,tsx} --write",
     "lint": "tslint --project tsconfig.json components/**/*.{ts,tsx} pages/**/*.{ts,tsx}",
     "dev": "cross-env NODE_ENV=development node index.js",
@@ -33,6 +33,7 @@
     "next-fonts": "^1.3.0",
     "normalize.css": "^8.0.1",
     "prettier": "^2.0.5",
+    "puppeteer": "^5.3.1",
     "ramda": "^0.27.0",
     "raw-loader": "^4.0.0",
     "react": "16.13.1",
@@ -46,7 +47,5 @@
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.7.5"
   },
-  "devDependencies": {
-    "phantomjs-prebuilt": "^2.1.16"
-  }
+  "devDependencies": {}
 }

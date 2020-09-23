@@ -44,6 +44,14 @@ const useStyles = createUseStyles({
     fontSize: "0.8em",
     margin: "0 8px",
   },
+
+  languangesContainer: {
+    display: "flex",
+  },
+
+  languageContainer: {
+    flex: 1,
+  },
 });
 
 const Profile: FunctionComponent<ProfileProps> = ({ profile, children }) => {
@@ -150,16 +158,20 @@ const Profile: FunctionComponent<ProfileProps> = ({ profile, children }) => {
       </Section>
 
       <Section title="Languages">
-        {profile.languages.map((lang) => {
-          return (
-            <Item key={lang.name}>
-              <ItemTitle oneline>
-                <ItemName>{lang.name}</ItemName>
-                <ItemInfo>{lang.proficiency}</ItemInfo>
-              </ItemTitle>
-            </Item>
-          );
-        })}
+        <div className={classes.languangesContainer}>
+          {profile.languages.map((lang) => {
+            return (
+              <div className={classes.languageContainer} key={lang.name}>
+                <Item>
+                  <ItemTitle isColumn>
+                    <ItemName>{lang.name}</ItemName>
+                    <ItemInfo>{lang.proficiency}</ItemInfo>
+                  </ItemTitle>
+                </Item>
+              </div>
+            );
+          })}
+        </div>
       </Section>
     </>
   );

@@ -27,9 +27,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - run: yarn export
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build website
+        run: yarn build
+      - name: Build HTML
+        run: yarn export
+      - name: Build Resume
+        run: yarn build-resume
       - name: copy file
         uses: canastro/copy-file-action@master
         with:
