@@ -26,7 +26,7 @@ const HomePage: NextPage = () => {
       <Head />
       <Glitch>
         <h1 className={classes.text}>
-          To prove that you are not a robot, harm another human being or,
+          To prove that you are not a robot, injure another human being or,
           through inaction, allow a human being to come to harm
         </h1>
         <Nav links={LINKS} noHover />
