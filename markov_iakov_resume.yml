@@ -78,6 +78,15 @@ projects:
   note: I hacked together a client/server application to control cheap RGB LED lights via Bluetooth in my home, from anywhere in the world. Built using React, Node, Expo.js, and Raspberry Pi.
 
 experience:
+- role: Cloud Software Architect
+  company: Evocode
+  from: 2020-10
+  note: I've taken a new challenge as a software architect, building a cloud-native platform for the Scandinavian automotive industry. My main responsibility was to kickstart a greenfield application development, build a robust cloud infrastructure and architecture, and to document it all.
+  highlights:
+  - Established and overseen cloud-native application development practices in a distributed, fully remote team. 
+  - Facilitated cooperation between multiple organisations working on delivering one integrated product, leveraging Microsoft Azure infrastructure and services.
+  - Implemented a DevOps infrastructure to ensure a seamless CI process across different teams. 
+
 - role: Cloud Services Product Owner
   company: Ataccama
   from: 2019-03
