@@ -24,7 +24,7 @@
     "@zeit/next-css": "^1.0.1",
     "body-parser": "^1.19.0",
     "cross-env": "^7.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "gray-matter": "^4.0.2",
     "husky": "^4.2.1",
     "js-yaml-loader": "^1.2.2",
