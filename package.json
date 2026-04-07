@@ -6,10 +6,10 @@
     "build-resume": "node ./build-resume.js public/markov_iakov_resume_built.pdf",
     "format": "prettier ./*.{js,ts,tsx} components/**/*.{ts,tsx} pages/**/*.{ts,tsx} --write",
     "lint": "tslint --project tsconfig.json components/**/*.{ts,tsx} pages/**/*.{ts,tsx}",
-    "dev": "cross-env NODE_ENV=development node index.js",
-    "build": "next build",
-    "export": "rimraf out && next build && next export",
-    "start": "cross-env NODE_ENV=production node index.js"
+    "dev": "cross-env NODE_ENV=development NODE_OPTIONS=--openssl-legacy-provider node index.js",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider next build",
+    "export": "rimraf out && cross-env NODE_OPTIONS=--openssl-legacy-provider next build && next export",
+    "start": "cross-env NODE_ENV=production NODE_OPTIONS=--openssl-legacy-provider node index.js"
   },
   "husky": {
     "hooks": {
